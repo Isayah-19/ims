@@ -135,13 +135,18 @@ function filterTable($query)
                     <form action="counseling_page.php" method="POST">
                         <div class="row">
                         <div class="col-md-6">
-                        <select name="filter" class="form-control input-sm m-bot4" placeholder="Counseling Approaches">
-                            <option value="Behavior Therapy">Behavior Therapy</option>
-                                        <option value="Cognitive Therapy">Cognitive Therapy</option>
-                                        <option value="Educational Counseling">Educational Counseling</option>
-                                        <option value="Holistic Therapy">Holistic Therapy</option>
-                                        <option value="Mental Health Counseling">Mental Health Counseling</option>
-                        </select>
+                        <select name="filter" class="form-control input-sm m-bot4">
+                                        <option value="All">All Counseling Approaches</option>
+                                        <?php
+                                            $query = "SELECT couns_appr FROM couns_approach";
+                                            $purpose = mysqli_query($db,$query);
+                                            while ($row = mysqli_fetch_assoc($purpose)) {
+                                                echo '
+                                                    <option value="'.$row['couns_appr'].'">'.$row['couns_appr'].'</option>
+                                                ';
+                                            }
+                                        ?>
+                                    </select>
                         </div>
                         <button class="btn btn-info btn-sm" name="search"><i class="fa fa-mail-forward"></i></button>
                         </div>
@@ -176,19 +181,7 @@ if (!$query) {
 
     /* fetch object array */
     while ($row = mysqli_fetch_assoc($search_result)) 
-        {       //$ID=$row['counseling_ID']; 
-               // $no=$row['STUD_NO'];
-               // $name=$row['STUD_NAME'];
-                //$app=$row['counseling_APPROACH'];
-                //$type=$row['counseling_type'];
-                //$bg=$row['counseling_BG'];
-                //$goals=$row['GOALS'];
-                //$comments=$row['COUNS_COMMENT'];
-                //$recomm=$row['RECOMMENDATION'];
-                //$apptype=$row['APPOINTMENT_type'];
-                //$date=$row['counseling_DATE'];
-
-
+        {       
                 $no=$row['stud_regNo'];
               // $name=$row['stud_fullname'];
                 $app=$row['apprcode'];

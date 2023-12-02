@@ -104,89 +104,98 @@ include('sidebarnav.php');
                 <section class="panel">
                     
                     <form action="add_confirm_counseling.php" method="POST" style='padding-left:10px'>
-         <?php
-include("config.php");
+                             <?php
+                                    include("config.php");
 
 
-$C_stud_id = isset($_POST['_id']) ? $_POST['_id'] : '';
-$C_stud_name = isset($_POST['_name']) ? $_POST['_name'] : '';
-$C_stud_no = isset($_POST['_no']) ? $_POST['_no'] : '';
-$C_stud_course = isset($_POST['_course']) ? $_POST['_course'] : '';
-$C_stud_yr = isset($_POST['_yr']) ? $_POST['_yr'] : '';
-$C_stud_email = isset($_POST['_email']) ? $_POST['_email'] : '';
-$C_stud_add = isset($_POST['_add']) ? $_POST['_add'] : '';
-$C_stud_cno = isset($_POST['_cno']) ? $_POST['_cno'] : '';
-$C_couns_bg = isset($_POST['_bg']) ? $_POST['_bg'] : '';
-$C_goals = isset($_POST['C_goals']) ? $_POST['C_goals'] : '';
-$C_comments = isset($_POST['C_comments']) ? $_POST['C_comments'] : '';
-$C_recomm = isset($_POST['C_recomm']) ? $_POST['C_recomm'] : '';
-$C_app=isset($_POST['C_approach']) ? $_POST['C_approach'] : '';
+                                    $C_stud_id = isset($_POST['_id']) ? $_POST['_id'] : '';
+                                    $C_stud_name = isset($_POST['_name']) ? $_POST['_name'] : '';
+                                    $C_stud_no = isset($_POST['_no']) ? $_POST['_no'] : '';
+                                    $C_stud_course = isset($_POST['_course']) ? $_POST['_course'] : '';
+                                    $C_stud_yr = isset($_POST['_yr']) ? $_POST['_yr'] : '';
+                                    $C_stud_email = isset($_POST['_email']) ? $_POST['_email'] : '';
+                                    $C_stud_add = isset($_POST['_add']) ? $_POST['_add'] : '';
+                                    $C_stud_cno = isset($_POST['_cno']) ? $_POST['_cno'] : '';
+                                    $C_couns_bg = isset($_POST['_bg']) ? $_POST['_bg'] : '';
+                                    $C_goals = isset($_POST['C_goals']) ? $_POST['C_goals'] : '';
+                                    $C_comments = isset($_POST['C_comments']) ? $_POST['C_comments'] : '';
+                                    $C_recomm = isset($_POST['C_recomm']) ? $_POST['C_recomm'] : '';
+                                    $C_app=isset($_POST['_app']) ? $_POST['_app'] : '';
+                                    $C_case=isset($_POST['_case']) ? $_POST['_case'] : '';
+                                    $C_appmnType=isset($_POST['_appmnt']) ? $_POST['_appmnt'] : '';
 
-date_default_timezone_set("Africa/Nairobi");
-		echo "  <div class='well col-lg-12'>
-				<center><strong><h2 id='C_stud_name' name='C_stud_name' value=".$C_stud_name."><i class='fa fa-user'> ".$C_stud_name."</i></h2></strong>
-                            <h5 id='C_stud_no' name='C_stud_no'><i> ".$C_stud_no."</i></h4>
-                            <h5 id='C_stud_course' name='C_stud_course'><i>".$C_stud_course."</i></h4></center><br>
-                            <h4 class='col-lg-8' id='C_stud_no' name='C_stud_no' style='padding-left:20px'><i class='fa fa-pencil'> ".$C_app."</i></h4>
-                            <h4 class='col-lg-8' id='C_stud_no' name='C_stud_no' style='padding-left:20px'><i class='fa fa-thumb-tack'> Walk-in</i></h4>
-                            <h5 id='C_stud_no' name='C_stud_no' style='padding-left:800px'><i class='fa fa-calendar'> Date/Time Counseled:<br><br>".date("Y/m/d h:i a")."</i></h4><br>
-                            <div class='col-lg-16'><h5 style='padding-left:20px'><i class='fa fa-info-circle'> Background of the Case </i>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class='fa fa-info-circle'> Counseling Goals</i></h5></div>
-                            <div class='col-sm-6'>
-                                    <textarea class='form-control' name='_couns_bg1'id='_couns_bg1' rows='6'>".$C_couns_bg."</textarea>
-                                </div>
-                            <div class='col-sm-6'>
-                                    <textarea class='form-control' name='_goals' id='_goals'  rows='6'>".$C_goals."</textarea>
-                                </div>
-                            <div class='col-lg-16'><h5 style='padding-left:20px'><i class='fa fa-info-circle'> Comments</i>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class='fa fa-info-circle'> Recommendations</i></h5>
-                            <div class='col-sm-6'>
-                                    <textarea class='form-control' name='_comments' id='_couns_comments' rows='6'>".$C_comments."</textarea>
-                                </div></div>
-                            <div class='col-sm-6'>
-                                    <textarea class='form-control' name='_recomm' id='_couns_recomm' rows='6'>".$C_recomm."</textarea>
-                                </div>
-                                </div>
-                
-						<!--Hidden FIelds-->
-											<div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_id' value='$C_stud_id'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_no' value='$C_stud_no'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_name'value='$C_stud_name'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_course' value='$C_stud_course'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_yr' value='$C_stud_yr'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_email' value='$C_stud_email'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_add'value='$C_stud_add'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_cno' value='$C_stud_cno'> </div>
-                                            <div class='form-group' style='display:none'>
-                                                <input type='text' class='form-control' name='_app' value='$C_app'> </div>
-						<!--end HF-->
-						";
 
-?>
+
+                                    date_default_timezone_set("Africa/Nairobi");
+                                            echo "  <div class='well col-lg-12'>
+                                                    <center><strong><h2 id='C_stud_name' name='C_stud_name' value=".$C_stud_name."><i class='fa fa-user'> ".$C_stud_name."</i></h2></strong>
+                                                                <h5 id='C_stud_no' name='C_stud_no'><i> ".$C_stud_no."</i></h4>
+                                                                <h5 id='C_stud_course' name='C_stud_course'><i>".$C_stud_course."</i></h4></center><br>
+                                                                <h4 class='col-lg-8' id='_case' name='_case' style='padding-left:20px'><i class='fa fa-pencil'>Nature of case: ".$C_case."</i></h4>
+                                                                <h4 class='col-lg-8' id='_app' name='_app' style='padding-left:20px'><i class='fa fa-pencil'>Counseling Approach: ".$C_app."</i></h4>
+                                                                <h4 class='col-lg-8' id='_appmnt' name='_appmnt' style='padding-left:20px'><i class='fa fa-thumb-tack'> ".$C_appmnType."</i></h4>
+                                                                <h5 id='C_stud_no' name='C_stud_no' style='padding-left:800px'><i class='fa fa-calendar'> Date/Time Counseled:<br><br>".date("Y/m/d h:i a")."</i></h4><br>
+                                                                <div class='col-lg-16'><h5 style='padding-left:20px'><i class='fa fa-info-circle'> Background of the Case </i>
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class='fa fa-info-circle'> Counseling Goals</i></h5></div>
+                                                                <div class='col-sm-6'>
+                                                                        <textarea class='form-control' name='_bg'id='_bg' rows='6'>".$C_couns_bg."</textarea>
+                                                                    </div>
+                                                                <div class='col-sm-6'>
+                                                                        <textarea class='form-control' name='_goals' id='_goals'  rows='6'>".$C_goals."</textarea>
+                                                                    </div>
+                                                                <div class='col-lg-16'><h5 style='padding-left:20px'><i class='fa fa-info-circle'> Comments</i>
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class='fa fa-info-circle'> Recommendations</i></h5>
+                                                                <div class='col-sm-6'>
+                                                                        <textarea class='form-control' name='_comments' id='_couns_comments' rows='6'>".$C_comments."</textarea>
+                                                                    </div></div>
+                                                                <div class='col-sm-6'>
+                                                                        <textarea class='form-control' name='_recomm' id='_couns_recomm' rows='6'>".$C_recomm."</textarea>
+                                                                    </div>
+                                                                    </div>
+                                                    
+                                                            <!--Hidden FIelds-->
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_id' value='$C_stud_id'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_no' value='$C_stud_no'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_name'value='$C_stud_name'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_course' value='$C_stud_course'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_yr' value='$C_stud_yr'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_email' value='$C_stud_email'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_add'value='$C_stud_add'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_cno' value='$C_stud_cno'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_app' value='$C_app'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_case' value='$C_case'> </div>   
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='_appmnt' value='$C_appmnType'> </div>      
+                                                            <!--end HF-->
+                                                            ";
+
+                                    ?>
 							<br><div class="" style="padding-top:40px">
 							<center><button type="submit" class="btn btn-primary"><i class="fa fa-pencil" disabled> EDIT</i></button>
 							<a data-toggle="modal" name="insert" class="btnInsert btn btn-primary" href="#Continue" type="submit"> CONFIRM</i></a>
@@ -196,10 +205,14 @@ date_default_timezone_set("Africa/Nairobi");
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="Continue" class="modal fade">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
-                                                            <div class="modal-header"style="background-color:#07847d; color:white">
-                                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                 <h5>Final Individual Counseling</h5>
-                                                            </div>
+                                                        <div class="modal-header" style="background-color:#07847d; color:#fff">
+                                                                        <div class="col-11">
+                                                                            <h4 class="modal-title">Final Individual Counseling</h4>
+                                                                        </div>
+                                                                        <div class="col-1 text-right">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
+                                                                        </div>
+                                                                </div>
                                                             <h5 style="padding-top:20px; text-align: center;">
                                                             Save the following information?</h5>
                                                             <br>
@@ -253,7 +266,7 @@ date_default_timezone_set("Africa/Nairobi");
                                 </form>
                                 </div>
                                 </div>
-                            <!--END-->
+                            END-->
                     </form>
                     </div>
                     </div>

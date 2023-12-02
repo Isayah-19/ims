@@ -119,6 +119,14 @@ include('sidebarnav.php');
                     include("config.php");
                         $stud_no = isset($_POST['student_no']) ? $_POST['student_no'] : '';
                         
+                        $studId = $_GET['stud_Id'];
+                        $studRegNo = $_GET['stud_regNo'];
+                        $studFullname = $_GET['stud_fullname'];
+                        $studYrLevel = $_GET['stud_yrlevel'];
+                        $course = $_GET['course'];
+                        $studAddress = $_GET['stud_address'];
+                        $studMobileNo = $_GET['stud_mobileNo'];
+                        $studEmail = $_GET['stud_email'];
                                                                     
 
                         $sql="SELECT r.stud_Id, r.stud_regNo, r.stud_fullname, r.stud_yrlevel,
@@ -136,17 +144,41 @@ include('sidebarnav.php');
                        $row=mysqli_fetch_array($query,MYSQLI_ASSOC);
                     
                     ?>
-                            <strong><h2 id="C_stud_name" name="C_stud_name"><?php echo $row['stud_fullname']?></h2></strong>
-                            <h5 id="C_stud_no" name="C_stud_no"><?php echo $row['stud_regNo']?></h5>
-                            <h5 id="C_stud_course" name="C_stud_course"><?php echo $row['course']?></h5>
-                            <h5 id="C_stud_cno" name="C_stud_cno"><?php echo $row['stud_mobileNo']?></h5>
-                            <h5 id="C_stud_email" name="C_stud_email"><?php echo $row['stud_email']?></h5>
-                            <h5 id="C_stud_add" name="C_stud_add"><?php echo $row['stud_address']?></h5>
+                            <strong><h2 id="C_stud_name" name="C_stud_name"><?php echo'' . $studFullname . ''?></h2></strong>
+                            <h5 id="C_stud_no" name="C_stud_no"><?php echo'' . $studRegNo . ''?></h4>
+                            <h5 id="C_stud_course" name="C_stud_course"><?php echo''. $course . ''?></h4>
+                            <h5 id="C_stud_cno" name="C_stud_cno"><?php echo''. $studMobileNo .''?></h4>
+                            <h5 id="C_stud_email" name="C_stud_email"><?php echo''. $studEmail .''?></h4>
+                            <h5 id="C_stud_add" name="C_stud_add"><?php echo''. $studAddress .''?></h4>
                             </div>
                             <div class="col-md-6">
                                 <blockquote>
                                     <h4>Recent Counseling</h4>
-                                
+                                <?php
+                    /*include("config.php");
+                        $stud_no2 = $_POST["student_no"];
+                        $stud_name2=$_POST["student_name"];
+
+                        $sql2="SELECT r.stud_Id, r.STUD_NO, CONCAT(r.STUD_FNAME,' ', r.STUD_LNAME) AS FULLNAME, t.stud_Id, t.COUNSELING_TYPE_CODE, 
+                                        t.COUNS_APPROACH, t.COUNS_DATE, a.COUNS_APPROACH_CODE, a.COUNS_APPROACH_NAME
+                                        FROM r_stud_profile r
+                                        INNER JOIN t_counseling t ON r.stud_Id = t.stud_Id
+                                        INNER JOIN R_COUNS_APPROACH a on t.COUNS_APPROACH = a.COUNS_APPROACH_CODE
+                                        where r.stud_no = '$stud_no2' 
+                                        OR CONCAT(r.STUD_FNAME,' ', r.STUD_LNAME)='$stud_name2'";
+
+                        $query2=mysqli_query($db,$sql2);
+
+                         if (!$query2) {
+                            die ('SQL Error: ' . mysqli_error($db));
+                        }
+
+                       while($row2=mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                    {
+                    ?>
+                                    <h6><?php echo''.$row['COUNS_APPROACH_NAME'].''?></h6>
+                                    <h6><?php echo''.$row['COUNS_DATE'].''?></h6>
+                                </blockquote> <?php } ?>*/?>
                             </div>
 
                             <div class="col-md-6">
@@ -167,13 +199,14 @@ include('sidebarnav.php');
                                     <BR/>
                                     <h5 style=" padding-left:17px"><strong>I.&nbsp&nbsp&nbsp&nbspBackground of the Case:</strong></h5>
                                     <div class="col-md-10">
-                                        <textarea name="_bg" id="_bg" class="wysihtml5 form-control" rows="9"></textarea>
+                                        <textarea name="C_couns_bg" id="C_couns_bg" class="wysihtml5 form-control" rows="9"></textarea>
                                     </div>
                                 </div>
                         </div>
                     
                         <!--MULTISELECT-->
                         <div class="form-group col-md-12" style="padding-top:20px">
+                            
                             <h5 style=" padding-left:20px"><strong>II.&nbsp&nbsp&nbsp&nbspCounseling Plan:</strong></h5><br/>
                                      <label class="col-lg-3 control-label" style="font-size:14px">&nbsp&nbsp&nbsp&nbsp&nbspa.&nbsp&nbsp&nbspNature of Case:</label>
                                         <div class="col-lg-5">
@@ -197,9 +230,8 @@ include('sidebarnav.php');
                                         </div>
                                         <br/><br/><br/><br/>   
                                     <label class="col-lg-3 control-label" style="font-size:14px">&nbsp&nbsp&nbsp&nbsp&nbspb.&nbsp&nbsp&nbspCounseling Approach(es):</label>
-                                    <div class="col-lg-5">
+                                    <div class="col-lg-6">
                                         <select multiple name="_app" id="e9" style="width:400px" class="populate" required="">
-                                        
                                             <option value="1">Academic and Career Counseling</option>
                                             <option value="2">Trauma-Informed Therapy</option>
                                             <option value="3">Person-Centered Therapy</option>
@@ -235,11 +267,43 @@ include('sidebarnav.php');
                                             Scheduled Appointment
                                         </label>
                                     </div>
-
+                                <!--RADIO
+                                <h5 style="padding-left:40px"><strong>Please Check:</strong></h5>
+                                <div class="minimal-blue single-row" style="padding-left:100px">
+                                    <label>
+                                        <input type="radio" name="C_walkin" id="C_walkin" value="Voluntary/walk-in" checked>
+                                        Voluntary/walk-in
+                                    </label>
+                                </div>
+                                <div class="radio" style="padding-left:100px">
+                                    <label>
+                                        <input type="radio" name="C_initiated" id="C_initiated" value="Counselor Initiated">
+                                        Counselor Initiated
+                                    </label>
+                                </div>-->
+                               <!-- <div class="input-group col-md-6" style="padding-left:67px">
+                                              <span class="input-group-addon">
+                                                <input type="radio">
+                                              </span>
+                                <input type="text" class="form-control" placeholder="Referred (if so, name of person making referral)">
+                                </div>
+                                <div class=" col-md-4">
+                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Name of person making referral">
+                                </div>-->
+                                <!--RADIO END-->
                                 </div>
                         <?php
                             include("config.php");
                                 $stud_no = isset($_POST['student_no']) ? $_POST['student_no'] : '';
+
+                                $studId = $_GET['stud_Id'];
+                                $studRegNo = $_GET['stud_regNo'];
+                                $studFullname = $_GET['stud_fullname'];
+                                $studYrLevel = $_GET['stud_yrlevel'];
+                                $course = $_GET['course'];
+                                $studAddress = $_GET['stud_address'];
+                                $studMobileNo = $_GET['stud_mobileNo'];
+                                $studEmail = $_GET['stud_email'];
 
                                 $sql="SELECT `stud_Id`, `stud_regNo`, `stud_fullname`,`stud_yrlevel`, `stud_course`,
                                                 CONCAT(`stud_course`,' ',`stud_yrlevel`) AS course,
@@ -252,23 +316,25 @@ include('sidebarnav.php');
                                 }
 
                                 $row=mysqli_fetch_array($query,MYSQLI_ASSOC);
+                                
                         ?>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_id" value="<?php echo $row['stud_Id']?>"> </div>
+                                                <input type="text" class="form-control" name="_id" value="<?php echo''. $studId .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_no" value="<?php echo$row['stud_regNo']?>"> </div>
+                                                <input type="text" class="form-control" name="_no" value="<?php echo''. $studRegNo .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_name" value="<?php echo $row['stud_fullname']?>"> </div>
+                                                <input type="text" class="form-control" name="_name" value="<?php echo''.  $studFullname .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_course" value="<?php echo $row['stud_course']?>"> </div>
+                                                <input type="text" class="form-control" name="_course" value="<?php echo''. $course .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_yr" value="<?php echo $row['stud_yrlevel']?>"> </div>
+                                                <input type="text" class="form-control" name="_yr" value="<?php echo''.  $studYrLevel .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_email" value="<?php echo$row['stud_email']?>"> </div>
+                                                <input type="text" class="form-control" name="_email" value="<?php echo''. $studEmail .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_add" value="<?php echo$row['stud_address']?>"> </div>
+                                                <input type="text" class="form-control" name="_add" value="<?php echo''. $studAddress .''?>"> </div>
                                             <div class="form-group" style="display:none">
-                                                <input type="text" class="form-control" name="_cno" value="<?php echo$row['stud_mobileNo']?>"> </div>
+                                                <input type="text" class="form-control" name="_cno" value="<?php echo''. $studMobileNo.''?>"> </div>
+                                                
                                 <div style="text-align:center">
                                     <a data-toggle="modal" name="insert" class="btnInsert btn btn-primary" href="#Continue" type="submit">Save</a>
                                     <button data-dismiss="modal" class="btn btn-cancel" type="button">Cancel</button>

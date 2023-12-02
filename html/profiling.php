@@ -104,29 +104,27 @@ include('sidebarnav.php');
                             <tbody>
                                 <?php
                                     include('config.php');
+                                    
 
-                                    $sql= "SELECT * FROM stud_profile";
+                                    $sql = "SELECT *, CONCAT(stud_course, ' - Year ', stud_yrlevel) AS course_year FROM stud_profile";
                                     $query = mysqli_query($db, $sql);
-
+                                    
                                     if (!$query) {
-                                        die ('SQL Error: ' . mysqli_error($db));
+                                        die('SQL Error: ' . mysqli_error($db));
                                     }
-
-                                        /* fetch object array */
-                                        while ($row = mysqli_fetch_assoc($query)) 
-                                        {
-                                                    // $ID =$row['ID'];
-                                                    $NO =$row['stud_regNo'];
-                                                    $FULLNAME=$row['stud_fullname'];
-                                                    $COURSE=$row['stud_course'];
-                                                    $STATUS=$row['stud_display_status'];
-
+                                    
+                                    while ($row = mysqli_fetch_assoc($query)) {
+                                        $NO = $row['stud_regNo'];
+                                        $FULLNAME = $row['stud_fullname'];
+                                        $COURSE_YEAR = $row['course_year']; // Modified variable for course and year
+                                        $STATUS = $row['stud_display_status'];
+                                    
                                 ?>
 
                             <tr>
                                 <td><?php echo $NO; ?></td>
                                 <td><?php echo $FULLNAME; ?></td>
-                                <td><?php echo $COURSE; ?></td>
+                                <td><?php echo $COURSE_YEAR; ?></td>
                                 <td><?php echo $STATUS; ?></td>
                                 <td><button class="btn btn-primary action-button stud_id" name="view" value="View" data-toggle="modal" href="#viewModal<?php echo $NO; ?>">
                                 <i class="fa fa-eye"> View</i></button></td>  
@@ -181,7 +179,7 @@ include('sidebarnav.php');
 
                                 <h3><span id="FULLNAME">  <?php echo $FULLNAME?></span></h3>
                                 <h5> <?php echo $NO; ?> </h5>
-                                <h5> <?php echo $COURSE; ?> </h5>
+                                <h5> <?php echo $COURSE_YEAR; ?> </h5>
                                  Status: 
                                  <form class="form-inline" method="POST" action="update_status.php">
                                         <div>
@@ -224,17 +222,18 @@ include('sidebarnav.php');
                                      <input type="text" id="V_s_ID" name="V_s_ID" style="display:none;" value="<?php echo $ID; ?>"></p>
                                      <input type="text" id="V_s_name" name="V_s_name" style="display:none;" value="<?php echo $FULLNAME; ?>"></p>
                                      <input type="text" id="V_s_no" name="V_s_no" style="display:none;" value="<?php echo $NO; ?>"></p>
-                                     <input type="text" id="V_s_course" name="V_s_course" style="display:none;"value="<?php echo $COURSE; ?>"></p>
+                                     <input type="text" id="V_s_course" name="V_s_course" style="display:none;"value="<?php echo $COURSE_YEAR; ?>"></p>
                                      <div class="col-lg-5">
                                           <select style="width:180px" name="txtcode" id="e9" class="populate" required="">
+                                                <option value="Counseling">Counseling</option>
                                                  <option value="Excuse">Excuse Letter</option>
-                                                 <option value="CoC">Cert of Candidacy</option>
-                                                 <option value="Clearance">Clearance</option>
+                                                 <option value="Signing of Clearance">Clearance</option>
                                           </select>    
                                      </div>
-                                     <div class="col-lg-5">
-                                         <input type="text" id="txtdetails" name="txtdetails" class="form-control col-lg-2" placeholder="Other Details...">
-                                     </div>
+                                     <div class="col-lg-8">
+                                                <input type="text" id="txtdetails" name="txtdetails" class="form-control" placeholder="Other Details...">
+                                      </div>
+
                                      <div class="col-lg-1">
                                         <button type="submit" class="btn btn-success" value=""><i class="fa fa-plus"></button></i>
                                      </div>
