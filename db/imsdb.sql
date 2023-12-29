@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 06:23 AM
+-- Generation Time: Dec 28, 2023 at 04:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -130,7 +130,8 @@ CREATE TABLE `active_semester` (
 --
 
 INSERT INTO `active_semester` (`sem_id`, `activesem_name`, `sem_isactive`, `sem_date_add`, `sem_date_mod`) VALUES
-(1, 'Semester One', '1', '2023-10-24 10:44:38', '2023-10-24 10:44:38');
+(1, 'Semester One', '1', '2023-10-24 10:44:38', '2023-10-24 10:44:38'),
+(2, 'Semester Two', '1', '2023-12-19 17:48:35', '2023-12-19 17:48:35');
 
 -- --------------------------------------------------------
 
@@ -223,7 +224,28 @@ INSERT INTO `counseling` (`couns_Id`, `couns_code`, `apprcode`, `stud_regNo`, `v
 (43, 'CC022-23/24', 3, 'B011-01-0833/2023', 0, '2023-11-27 04:36:13', '', '', '', 'Scheduled Appointment', 6, 'test', 'test', 'test', 'test'),
 (44, 'CC023-23/24', 1, 'C026-01-0846/2023', 0, '2023-11-27 04:47:04', '2023-2024', 'Semester One', 'Individual Counseling', 'walk-in', 2, 'test', 'test', 'test', 'test'),
 (45, 'CC024-23/24', 1, 'B012-01-0834/2021', 0, '2023-11-27 05:19:47', '2023-2024', 'Semester One', 'Individual Counseling', 'Scheduled Appointment', 1, 'test', 'test', 'test', 'test'),
-(46, 'CC025-23/24', 3, 'C027-01-0781/2020', 0, '2023-11-27 05:22:10', '2023-2024', 'Semester One', 'Individual Counseling', 'Scheduled Appointment', 4, '', 'test', 'test', 'test');
+(46, 'CC025-23/24', 3, 'C027-01-0781/2020', 0, '2023-11-27 05:22:10', '2023-2024', 'Semester One', 'Individual Counseling', 'Scheduled Appointment', 4, '', 'test', 'test', 'test'),
+(47, 'CC026-23/24', 3, 'E024-01-0826/2021', 44, '2023-11-20 07:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 4, 'Addressing past experiences', 'Developing coping mechanisms', 'Emotional healing', 'Continued therapy sessions for support'),
+(48, 'CC027-23/24', 1, 'E024-01-0827/2021', 45, '2023-11-20 08:30:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 7, 'Building self-confidence', 'Exploring self-care techniques', 'Encouraging positive lifestyle changes', 'Follow-up sessions for progress assessment'),
+(49, 'CC028-23/24', 4, 'E024-01-0833/2022', 46, '2023-11-21 06:45:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 11, 'Developing stress management strategies', 'Implementing behavior change techniques', 'Supporting resilience building', 'Scheduled sessions for monitoring progress'),
+(50, 'CC029-23/24', 2, 'E033-01-0826/2020', 47, '2023-11-21 11:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 5, 'Academic guidance', 'Career exploration', 'Supporting decision-making', 'Goal-setting and achievement plan'),
+(51, 'CC030-23/24', 1, 'E033-01-0528/2022', 48, '2023-11-22 06:30:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 8, 'Financial stress management', 'Budgeting and planning', 'Financial resources exploration', 'Follow-up sessions for financial wellness'),
+(52, 'CC031-23/24', 4, 'E022-01-0826/2020', 49, '2023-11-22 08:45:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 12, 'Trauma recovery', 'Grief processing', 'Coping strategies', 'Continued therapy support'),
+(53, 'CC032-23/24', 3, 'E022-01-0946/2021', 50, '2023-11-23 07:15:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 3, 'Health and wellness exploration', 'Health behavior change', 'Health improvement strategies', 'Regular health monitoring and development'),
+(54, 'CC033-23/24', 2, 'E023-01-0826/2020', 51, '2023-11-23 10:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 10, 'Adjustment to university life', 'Social integration strategies', 'Community involvement opportunities', 'Continued sessions for adaptation'),
+(55, 'CC034-23/24', 1, 'E023-01-0621/2021', 52, '2023-11-23 12:45:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 6, 'Personal development exploration', 'Self-improvement techniques', 'Personal growth plan', 'Follow-up sessions for personal growth assessment'),
+(56, 'CC035-23/24', 4, 'E023-01-0920/2021', 53, '2023-12-04 09:30:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 9, 'Substance abuse management', 'Recovery strategies', 'Substance-free lifestyle development', 'Ongoing support and recovery plan'),
+(57, 'CC036-23/24', 4, 'E029-01-0826/2020', 54, '2023-11-25 06:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 7, 'Family relationship support', 'Communication improvement strategies', 'Family harmony planning', 'Follow-up sessions for family dynamics'),
+(58, 'CC037-23/24', 3, 'E029-01-0721/2022', 55, '2023-11-25 07:30:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 4, 'Personal growth exploration', 'Motivation enhancement', 'Personal goal-setting', 'Follow-up sessions for personal development'),
+(59, 'CC038-23/24', 2, 'E028-01-0826/2020', 56, '2023-11-25 10:15:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 1, 'Academic performance improvement', 'Study techniques enhancement', 'Academic goal-setting', 'Regular academic progress monitoring'),
+(60, 'CC039-23/24', 1, 'E028-01-0776/2022', 57, '2023-11-25 11:45:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 11, 'Conflict resolution strategies', 'Mediation techniques', 'Conflict resolution plan', 'Follow-up sessions for conflict management'),
+(61, 'CC040-23/24', 4, 'E028-01-0829/2021', 58, '2023-11-27 13:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 13, 'Goal-setting and motivation strategies', 'Achievement plans', 'Goal achievement tracking', 'Ongoing goal-setting support'),
+(62, 'CC041-23/24', 1, 'E033-01-0528/2022', 59, '2023-11-27 14:30:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 2, 'Career path exploration', 'Professional development strategies', 'Career growth planning', 'Career development guidance'),
+(63, 'CC042-23/24', 3, 'E033-01-2821/2021', 60, '2023-11-29 08:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 9, 'Substance abuse recovery', 'Recovery plans', 'Substance-free lifestyle development', 'Follow-up sessions for recovery progress'),
+(64, 'CC043-23/24', 4, 'E034-01-0747/2022', 61, '2023-12-01 09:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 12, 'Trauma recovery sessions', 'Grief processing techniques', 'Coping mechanisms', 'Continued therapy support'),
+(65, 'CC044-23/24', 2, 'E020-01-0787/2021', 62, '2023-12-04 11:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 6, 'Personal development exploration', 'Self-improvement techniques', 'Personal growth plan', 'Follow-up sessions for personal growth assessment'),
+(66, 'CC045-23/24', 1, 'E020-01-0826/2020', 63, '2023-12-04 12:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 8, 'Financial stress management', 'Budgeting and planning', 'Financial resources exploration', 'Follow-up sessions for financial wellness'),
+(67, 'CC046-23/24', 4, 'T056-01-0826/2020', 64, '2023-12-04 13:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 5, 'Academic guidance', 'Career exploration', 'Supporting decision-making', 'Goal-setting and achievement plan');
 
 -- --------------------------------------------------------
 
@@ -330,7 +352,17 @@ INSERT INTO `courses` (`course_id`, `course_code`, `course_name`, `course_desc`,
 (5, 'EEE', 'Bachelor of Science in Electrical & Electronic Engineering', 'Course Description', '2023-2024', '2023-10-24 11:13:45', '2023-10-24 11:13:45', 'Active'),
 (6, 'Bcom', 'Bachelor of Commerce', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
 (7, 'BBA', 'Bachelor of Business Administration ', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
-(8, 'BPSM', 'Bachelor of Purchasing and Supplies Management ', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active');
+(8, 'BPSM', 'Bachelor of Purchasing and Supplies Management ', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(9, 'BScCiv', 'Bachelor of Science in Civil Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(10, 'BEDCiv', 'Bachelor of Education in Civil Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(11, 'BScCHEM', 'Bachelor of Science in Chemical Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(12, 'BScMECH', 'Bachelor of Science in Mechatronics Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(13, 'BScELE', 'Bachelor of Science in Electrical Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(14, 'BScMEC', 'Bachelor of Science in Mechanical Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(15, 'BEDMEC', 'Bachelor of Education in Mechanical Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(16, 'BScTIE', 'Bachelor of Science in Technology and Industrial Entrepreneurship', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(17, 'BEDEE', 'Bachelor of Education in Electrical Engineering', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active'),
+(18, 'BTEBC', 'Bachelor of Technology in Building Construction', 'Course Description', '2023-2024', '2023-10-24 11:12:45', '2023-10-24 11:12:45', 'Active');
 
 -- --------------------------------------------------------
 
@@ -506,7 +538,44 @@ INSERT INTO `stud_profile` (`stud_Id`, `stud_regNo`, `stud_fullname`, `stud_gend
 (53, 'B011-01-0013/2018', 'Emily Nyambura', 'Female', 'BPSM', 4, '2000-08-25', 'Kisumu', '789 Kondele', '0738275015', 'emily.nyambura18@students.dkut.ac.ke', 'Kisumu Teaching Hospital', '2018-09-05 11:45:00', '2018-09-05 11:45:00', NULL, 'Active'),
 (54, 'E021-01-0014/2019', 'David Kiptoo', 'Male', 'EEE', 4, '2001-07-09', 'Eldoret', '012 Langas', '0749222086', 'david.kiptoo19@students.dkut.ac.ke', 'Eldoret County Hospital', '2019-10-20 14:30:00', '2019-10-20 14:30:00', NULL, 'Active'),
 (55, 'E021-01-0015/2016', 'Hannah Wairimu', 'Female', 'EEE', 4, '1998-09-15', 'Nakuru', '345 Free Area', '0750622697', 'hannah.wairimu16@students.dkut.ac.ke', 'Nakuru General Hospital', '2016-12-05 12:15:00', '2016-12-05 12:15:00', NULL, 'Inactive'),
-(56, 'C026-01-0004/2019', 'Sarah Wambui', 'Female', 'BSCS', 4, '2001-02-10', 'Nakuru', '012 Nakuru West', '0745678901', 'sarah.wambui19@students.dkut.ac.ke', 'Nakuru General Hospital', '2019-11-20 12:15:00', '2019-11-20 12:15:00', NULL, 'Active');
+(56, 'C026-01-0004/2019', 'Sarah Wambui', 'Female', 'BSCS', 4, '2001-02-10', 'Nakuru', '012 Nakuru West', '0745678901', 'sarah.wambui19@students.dkut.ac.ke', 'Nakuru General Hospital', '2019-11-20 12:15:00', '2019-11-20 12:15:00', NULL, 'Active'),
+(57, 'E024-01-0826/2021', 'David Odhiambo Ochieng', 'Male', 'BScCiv', 3, '2002-05-15', 'Siaya', '223 Karatina', '0712345678', 'david.odhiambo21@students.dkut.ac.ke', 'Siaya County Hospital', '2021-08-02 09:30:45', '2021-08-02 09:30:45', NULL, 'Active'),
+(58, 'E024-01-0826/2020', 'Daniel Njoroge Mugo', 'Male', 'BScCE', 4, '2001-09-15', 'Nyeri', '263 Gatitu', '0712345678', 'mugo.daniel20@students.dkut.ac.ke', 'Nyeri Hospital', '2020-08-02 10:44:38', '2020-08-02 10:44:38', NULL, 'Active'),
+(59, 'E033-01-0826/2020', 'Esther Wanjiru Kimani', 'Female', 'BEDCE', 4, '2001-05-20', 'Muranga', '39 Kagunduini', '0723456789', 'kimani.esther20@students.dkut.ac.ke', 'Murang\'a Clinic', '2020-08-03 10:44:38', '2020-08-03 10:44:38', NULL, 'Active'),
+(60, 'E022-01-0826/2020', 'Josephat Gitau Maina', 'Male', 'BScMECH', 4, '2001-03-10', 'Thika', '12345 Gatitu', '0734567890', 'maina.josephat20@students.dkut.ac.ke', 'Thika General Hospital', '2020-08-04 10:44:38', '2020-08-04 10:44:38', NULL, 'Active'),
+(61, 'E023-01-0826/2020', 'Grace Muthoni Njoroge', 'Female', 'BScMEC', 4, '2001-07-18', 'Kerugoya', '6789 Gatitu', '0745678901', 'njoroge.grace20@students.dkut.ac.ke', 'Kerugoya Hospital', '2020-08-05 10:44:38', '2020-08-05 10:44:38', NULL, 'Active'),
+(62, 'E029-01-0826/2020', 'Moses Njenga Kariuki', 'Male', 'BEDMEC', 4, '2001-11-25', 'Nanyuki', '9876 Estate Way', '0756789012', 'kariuki.moses20@students.dkut.ac.ke', 'Nanyuki General Hospital', '2020-08-06 10:44:38', '2020-08-06 10:44:38', NULL, 'Active'),
+(63, 'E020-01-0826/2020', 'Mary Wangari Nyambura', 'Female', 'BScTIE', 4, '2001-12-30', 'Meru', '7654 Forest Walk', '0767890123', 'nyambura.mary20@students.dkut.ac.ke', 'Meru Hospital', '2020-08-07 10:44:38', '2020-08-07 10:44:38', NULL, 'Active'),
+(64, 'E028-01-0826/2020', 'Paul Ngugi Kamau', 'Male', 'BEDEE', 4, '2001-08-05', 'Mutunduri', '5432 Siakago', '0778901234', 'kamau.paul20@students.dkut.ac.ke', 'Embu Clinic', '2020-08-08 10:44:38', '2020-08-08 10:44:38', NULL, 'Active'),
+(65, 'T056-01-0826/2020', 'Sarah Wambui Njeri', 'Female', 'BTEBC', 4, '2001-06-12', 'Embu', '2345 Gatitu', '0789012345', 'njeri.sarah20@students.dkut.ac.ke', 'Embu Hospital', '2020-08-09 10:44:38', '2020-08-09 10:44:38', NULL, 'Active'),
+(66, 'E034-01-0826/2020', 'David Githinji Muchiri', 'Male', 'BScCHEM', 4, '2001-02-18', 'Nairobi', '4567 Ruiru', '0790123456', 'muchiri.david20@students.dkut.ac.ke', 'Nairobi General Hospital', '2020-08-10 10:44:38', '2020-08-10 10:44:38', NULL, 'Active'),
+(67, 'E024-01-0827/2021', 'Eunice Wanjiku Ndungu', 'Female', 'BScCE', 3, '2002-11-20', 'Nyeri', '1234 Embassy', '0712345678', 'ndungu.eunice21@students.dkut.ac.ke', 'Nyeri General Hospital', '2021-08-02 10:44:38', '2021-08-02 10:44:38', NULL, 'Active'),
+(68, 'E029-01-0721/2022', 'Peter Kipchirchir Koech', 'Male', 'BEDMEC', 2, '2003-11-28', 'Uasin Gishu', '567 Nakuru', '0756789012', 'peter.kipchirchir22@students.dkut.ac.ke', 'Uasin Gishu County Hospital', '2022-08-06 16:30:35', '2022-08-06 16:30:35', NULL, 'Active'),
+(69, 'E022-01-0946/2021', 'Jane Njeri Wanjiru', 'Female', 'BScMECH', 3, '2002-03-05', 'Thika', '7890 Gatitu', '0734567890', 'wanjiru.jane21@students.dkut.ac.ke', 'Thika General Hospital', '2021-08-04 10:44:38', '2021-08-04 10:44:38', NULL, 'Active'),
+(70, 'E023-01-0621/2021', 'Peter Gitau Ngugi', 'Male', 'BScMEC', 3, '2002-07-18', 'Kerugoya', '0987 Gatitu', '0745678901', 'ngugi.peter21@students.dkut.ac.ke', 'Kerugoya Hospital', '2021-08-05 10:44:38', '2021-08-05 10:44:38', NULL, 'Active'),
+(71, 'E033-01-0528/2022', 'Daniel Kiprop Cheruiyot', 'Male', 'BEDCiv', 2, '2003-02-20', 'Bomet', '112 Bomet', '0723456789', 'daniel.kiprop22@students.dkut.ac.ke', 'Nandi Hills District Hospital', '2022-08-03 11:15:30', '2022-08-03 11:15:30', NULL, 'Active'),
+(72, 'E020-01-0787/2021', 'Pauline Nyambura Gichuru', 'Female', 'BScTIE', 3, '2002-01-30', 'Meru', '4321 Gatitu', '0767890123', 'gichuru.pauline21@students.dkut.ac.ke', 'Meru Hospital', '2021-08-07 10:44:38', '2021-08-07 10:44:38', NULL, 'Active'),
+(73, 'E028-01-0829/2021', 'Mark Njenga Kamau', 'Male', 'BEDEE', 3, '2002-08-05', 'Gatundu', '5678 Gatundu South', '0778901234', 'kamau.mark21@students.dkut.ac.ke', 'Gatundu General Hospital', '2021-08-08 10:44:38', '2021-08-08 10:44:38', NULL, 'Active'),
+(74, 'T056-01-0620/2022', 'Joyce Chepkorir Kimutai', 'Female', 'BTEBC', 2, '2003-06-25', 'Elgeyo-Marakwet', '901 Elgeyo', '0701234567', 'joyce.chepkorir22@students.dkut.ac.ke', 'Elgeyo-Marakwet County Hospital', '2022-08-09 22:30:25', '2022-08-09 22:30:25', NULL, 'Active'),
+(75, 'E034-01-0724/2021', 'David Githinji Muchiri', 'Male', 'BScCHEM', 3, '2002-02-18', 'Limuru', '7890 Escarpment', '0790123456', 'muchiri.david21@students.dkut.ac.ke', 'Limuru General Hospital', '2021-08-10 10:44:38', '2021-08-10 10:44:38', NULL, 'Active'),
+(76, 'E024-01-0621/2021', 'Alice Atieno Auma', 'Female', 'BScCE', 3, '2002-09-25', 'Kisumu', '3456 Beach Rd', '0701122334', 'auma.alice21@students.dkut.ac.ke', 'Kisumu Hospital', '2021-08-11 10:44:38', '2021-08-11 10:44:38', NULL, 'Active'),
+(77, 'E033-01-2821/2021', 'Daniel Odhiambo Omondi', 'Male', 'BEDCE', 3, '2002-11-11', 'Mombasa', '6789 Coastline St', '0712233445', 'omondi.daniel21@students.dkut.ac.ke', 'Mombasa Clinic', '2021-08-12 10:44:38', '2021-08-12 10:44:38', NULL, 'Active'),
+(78, 'E022-01-2323/2021', 'Grace Akinyi Adhiambo', 'Female', 'BScMECH', 3, '2002-10-30', 'Kisumu', '8901 Lakeview St', '0723344556', 'adhiambo.grace21@students.dkut.ac.ke', 'Kisumu General Hospital', '2021-08-13 10:44:38', '2021-08-13 10:44:38', NULL, 'Active'),
+(79, 'E023-01-0920/2021', 'Brian Ochieng Otieno', 'Male', 'BScMEC', 3, '2002-12-12', 'Kisii', '0123 Highlands St', '0734455667', 'otieno.brian21@students.dkut.ac.ke', 'Kisii Hospital', '2021-08-14 10:44:38', '2021-08-14 10:44:38', NULL, 'Active'),
+(80, 'E029-01-0649/2021', 'Lucy Anyango Achieng', 'Female', 'BEDMEC', 3, '2002-08-05', 'Homabay', '2345 Bayview Rd', '0745566778', 'achieng.lucy21@students.dkut.ac.ke', 'Homabay Clinic', '2021-08-15 10:44:38', '2021-08-15 10:44:38', NULL, 'Active'),
+(81, 'E020-01-0729/2021', 'Samuel Barasa Were', 'Male', 'BScTIE', 3, '2002-06-23', 'Kakamega', '4567 Forest St', '0756677889', 'were.samuel21@students.dkut.ac.ke', 'Kakamega Hospital', '2021-08-16 10:44:38', '2021-08-16 10:44:38', NULL, 'Active'),
+(82, 'E028-01-0898/2021', 'Mercy Adhiambo Masika', 'Female', 'BEDEE', 3, '2002-04-17', 'Garissa', '6789 Desert St', '0767788990', 'masika.mercy21@students.dkut.ac.ke', 'Garissa Clinic', '2021-08-17 10:44:38', '2021-08-17 10:44:38', NULL, 'Active'),
+(83, 'T056-01-0860/2021', 'Kevin Otieno Omondi', 'Male', 'BTEBC', 3, '2002-02-14', 'Isiolo', '8901 Savannah St', '0779869201', 'omondi.kevin21@students.dkut.ac.ke', 'Isiolo Hospital', '2021-08-18 10:44:38', '2021-08-18 10:44:38', NULL, 'Active'),
+(84, 'E034-01-0813/2021', 'Catherine Akoth Atieno', 'Female', 'BScCHEM', 3, '2002-01-06', 'Kwale', '0123 Beachside St', '0728994012', 'atieno.catherine21@students.dkut.ac.ke', 'Kwale Hospital', '2021-08-19 10:44:38', '2021-08-19 10:44:38', NULL, 'Active'),
+(85, 'E024-01-0833/2022', 'Fatuma Fatima Abdi', 'Female', 'BScCE', 2, '2003-07-28', 'Malindi', '3456 Beach Rd', '0790405112', 'odhiambo.grace22@students.dkut.ac.ke', 'Malindi Clinic', '2022-08-20 10:44:38', '2022-08-20 10:44:38', NULL, 'Active'),
+(86, 'E033-01-0846/2022', 'Michael Onyango Otieno', 'Male', 'BEDCE', 2, '2003-05-18', 'Lamu', '6789 Coastline St', '0791346922', 'otieno.michael22@students.dkut.ac.ke', 'Lamu Hospital', '2022-08-21 10:44:38', '2022-08-21 10:44:38', NULL, 'Active'),
+(87, 'E022-01-0857/2022', 'Mary Auma Atieno', 'Female', 'BScMECH', 2, '2003-09-15', 'Homabay', '8901 Lakeview St', '0792247383', 'atieno.mary22@students.dkut.ac.ke', 'Homabay Clinic', '2022-08-22 10:44:38', '2022-08-22 10:44:38', NULL, 'Active'),
+(88, 'E023-01-0869/2022', 'David Ochieng Onyango', 'Male', 'BScMEC', 2, '2003-06-25', 'Kisii', '0123 Highlands St', '0793734624', 'onyango.david22@students.dkut.ac.ke', 'Kisii Hospital', '2022-08-23 10:44:38', '2022-08-23 10:44:38', NULL, 'Active'),
+(89, 'E029-01-0878/2022', 'Jane Anyango Atieno', 'Female', 'BEDMEC', 2, '2003-04-17', 'Mombasa', '2345 Bayview Rd', '0794445725', 'atieno.jane22@students.dkut.ac.ke', 'Mombasa General Hospital', '2022-08-24 10:44:38', '2022-08-24 10:44:38', NULL, 'Active'),
+(90, 'E020-01-0766/2022', 'John Were Gichuru', 'Male', 'BScTIE', 2, '2003-01-30', 'Kakamega', '4567 Forest St', '0796152674', 'gichuru.john22@students.dkut.ac.ke', 'Kakamega Hospital', '2022-08-25 10:44:38', '2022-08-25 10:44:38', NULL, 'Active'),
+(91, 'E028-01-0776/2022', 'Lucy Akinyi Wanjiru', 'Female', 'BEDEE', 2, '2003-08-05', 'Garissa', '6789 Desert St', '0796502745', 'wanjiru.lucy22@students.dkut.ac.ke', 'Garissa Clinic', '2022-08-26 10:44:38', '2022-08-26 10:44:38', NULL, 'Active'),
+(92, 'T056-01-0888/2022', 'James Otieno Were', 'Male', 'BTEBC', 2, '2003-02-14', 'Nanyuki', '8901 Savannah St', '0797365388', 'were.james22@students.dkut.ac.ke', 'Nanyuki Hospital', '2022-08-27 10:44:38', '2022-08-27 10:44:38', NULL, 'Active'),
+(93, 'E034-01-0747/2022', 'Rebecca Anyango Akoth', 'Female', 'BScCHEM', 2, '2003-11-06', 'Kwale', '0123 Beachside St', '0798286934', 'akoth.rebecca22@students.dkut.ac.ke', 'Kwale Hospital', '2022-08-28 10:44:38', '2022-08-28 10:44:38', NULL, 'Active');
 
 -- --------------------------------------------------------
 
@@ -562,7 +631,28 @@ INSERT INTO `stud_visit` (`stud_visitId`, `visitcode`, `visitdate`, `stud_regno`
 (40, 'VS033-23/24', '2023-11-24 11:20:48', 'C027-01-2556/2020', 'Counseling', 'In of help'),
 (41, 'VS034-23/24', '2023-11-24 11:33:16', 'C027-01-0823/2020', 'Counseling', 'sampling'),
 (42, 'VS035-23/24', '2023-11-24 12:14:10', 'C027-01-2556/2020', 'Counseling', 'Really needs help'),
-(43, 'VS036-23/24', '2023-11-27 05:21:34', 'C027-01-0781/2020', 'Counseling', 'Needs help with making the next step as she looks forward to leaving school');
+(43, 'VS036-23/24', '2023-11-27 05:21:34', 'C027-01-0781/2020', 'Counseling', 'Needs help with making the next step as she looks forward to leaving school'),
+(44, 'VS037-23/24', '2023-11-20 07:00:00', 'E024-01-0826/2021', 'Counseling', 'Social confidence and wellness improvement'),
+(45, 'VS038-23/24', '2023-11-20 08:30:00', 'E024-01-0827/2021', 'Counseling', 'Emotional well-being and growth'),
+(46, 'VS039-23/24', '2023-11-21 06:45:00', 'E024-01-0833/2022', 'Counseling', 'Stress management and resilience development'),
+(47, 'VS040-23/24', '2023-11-21 11:00:00', 'E033-01-0826/2020', 'Counseling', 'Academic and personal guidance'),
+(48, 'VS041-23/24', '2023-11-22 06:30:00', 'E033-01-0528/2022', 'Counseling', 'Financial wellness and planning'),
+(49, 'VS042-23/24', '2023-11-22 08:45:00', 'E022-01-0826/2020', 'Counseling', 'Trauma recovery and support'),
+(50, 'VS043-23/24', '2023-11-23 07:15:00', 'E022-01-0946/2021', 'Counseling', 'Health and lifestyle improvement'),
+(51, 'VS044-23/24', '2023-11-23 10:00:00', 'E023-01-0826/2020', 'Counseling', 'University life adaptation strategies'),
+(52, 'VS045-23/24', '2023-11-23 12:45:00', 'E023-01-0621/2021', 'Counseling', 'Personal growth and development'),
+(53, 'VS046-23/24', '2023-12-04 09:30:00', 'E023-01-0920/2021', 'Counseling', 'Substance abuse recovery and support'),
+(54, 'VS047-23/24', '2023-11-25 06:00:00', 'E029-01-0826/2020', 'Counseling', 'Family relationship support and improvement'),
+(55, 'VS048-23/24', '2023-11-25 07:30:00', 'E029-01-0721/2022', 'Counseling', 'Personal growth and motivation enhancement'),
+(56, 'VS049-23/24', '2023-11-25 10:15:00', 'E028-01-0826/2020', 'Counseling', 'Academic performance improvement strategies'),
+(57, 'VS050-23/24', '2023-11-25 11:45:00', 'E028-01-0776/2022', 'Counseling', 'Conflict resolution and management techniques'),
+(58, 'VS051-23/24', '2023-11-27 13:00:00', 'E028-01-0829/2021', 'Counseling', 'Goal-setting and motivation enhancement'),
+(59, 'VS052-23/24', '2023-11-27 14:30:00', 'E033-01-0528/2022', 'Counseling', 'Career development and guidance'),
+(60, 'VS053-23/24', '2023-11-29 08:00:00', 'E033-01-2821/2021', 'Counseling', 'Substance abuse recovery and support'),
+(61, 'VS054-23/24', '2023-12-01 09:00:00', 'E034-01-0747/2022', 'Counseling', 'Trauma recovery and grief processing'),
+(62, 'VS055-23/24', '2023-12-04 11:00:00', 'E020-01-0787/2021', 'Counseling', 'Personal development exploration'),
+(63, 'VS056-23/24', '2023-12-04 12:00:00', 'E020-01-0826/2020', 'Counseling', 'Financial stress management and planning'),
+(64, 'VS057-23/24', '2023-12-04 13:00:00', 'T056-01-0826/2020', 'Counseling', 'Academic and career guidance');
 
 -- --------------------------------------------------------
 
@@ -679,7 +769,10 @@ CREATE TABLE `users` (
   `userId` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `user_referenced` varchar(20) NOT NULL,
-  `user_password` blob NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `reset_link_token` varchar(255) DEFAULT NULL,
+  `exp_date` date DEFAULT NULL,
   `user_role` enum('System Administrator','Guidance Counselor','student','Peer counselor') NOT NULL,
   `user_date_add` datetime NOT NULL DEFAULT current_timestamp(),
   `user_date_mod` datetime NOT NULL DEFAULT current_timestamp(),
@@ -690,11 +783,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `username`, `user_referenced`, `user_password`, `user_role`, `user_date_add`, `user_date_mod`, `user_display_stat`) VALUES
-(1, 'Isayah', '', 0x42617631657240303339, 'Peer counselor', '2023-10-24 10:08:38', '2023-10-24 10:08:38', 'Active'),
-(3, 'Tester00', '', 0x42617631657240303339, 'Peer counselor', '2023-10-24 10:12:41', '2023-10-24 10:12:41', 'Active'),
-(4, 'Tester007', '', 0x42617631657240303339, 'Guidance Counselor', '2023-10-24 10:28:09', '2023-10-24 10:28:09', 'Active'),
-(5, 'SysAdmin', '', 0x42617631657240303339, 'System Administrator', '2023-10-24 17:51:26', '2023-10-24 17:51:26', 'Active');
+INSERT INTO `users` (`userId`, `username`, `user_referenced`, `user_email`, `user_password`, `reset_link_token`, `exp_date`, `user_role`, `user_date_add`, `user_date_mod`, `user_display_stat`) VALUES
+(1, 'Isayah', '', 'isayaopiyo0@gmail.com', 'Bav1er@039', '11266af83101b33fd444d90405b8197d5267', '2023-12-29', 'Peer counselor', '2023-10-24 10:08:38', '2023-10-24 10:08:38', 'Active'),
+(3, 'Tester00', '', '', 'Bav1er@039', NULL, NULL, 'Peer counselor', '2023-10-24 10:12:41', '2023-10-24 10:12:41', 'Active'),
+(4, 'Tester007', '', '', 'Bav1er@039', NULL, NULL, 'Guidance Counselor', '2023-10-24 10:28:09', '2023-10-24 10:28:09', 'Active'),
+(5, 'SysAdmin', '', '', 'Bav1er@039', NULL, NULL, 'System Administrator', '2023-10-24 17:51:26', '2023-10-24 17:51:26', 'Active'),
+(6, 'Shadrack', '', '', 'Testingthething', NULL, NULL, 'Peer counselor', '2023-12-20 11:33:20', '2023-12-20 11:33:20', 'Active');
 
 -- --------------------------------------------------------
 
@@ -930,7 +1024,7 @@ ALTER TABLE `active_academic_year`
 -- AUTO_INCREMENT for table `active_semester`
 --
 ALTER TABLE `active_semester`
-  MODIFY `sem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `appointments`
@@ -948,7 +1042,7 @@ ALTER TABLE `batch_details`
 -- AUTO_INCREMENT for table `counseling`
 --
 ALTER TABLE `counseling`
-  MODIFY `couns_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `couns_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `couns_appointmentype`
@@ -972,7 +1066,7 @@ ALTER TABLE `couns_type`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `marital_stat`
@@ -1002,13 +1096,13 @@ ALTER TABLE `semester`
 -- AUTO_INCREMENT for table `stud_profile`
 --
 ALTER TABLE `stud_profile`
-  MODIFY `stud_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `stud_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `stud_visit`
 --
 ALTER TABLE `stud_visit`
-  MODIFY `stud_visitId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `stud_visitId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `sub_nature_of_case`
@@ -1038,7 +1132,7 @@ ALTER TABLE `useroles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `visit`
