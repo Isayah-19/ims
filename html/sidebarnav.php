@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a <?php if($currentPage=='DeKUT-IMS-Appointment') { echo 'class="active"';} ?> href="appointment_list.php">
+                    <a <?php if($currentPage=='DeKUT-IMS-Appointment') { echo 'class="active"';} ?> href="app_list.php">
                         <i class="fa fa-calendar"></i>
                         <span>Appointment Scheduling </span>
                     </a>

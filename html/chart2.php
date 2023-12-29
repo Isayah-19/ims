@@ -8,7 +8,7 @@
 
 
 <?php 
-$currentPage = 'DeKUT-IMS-Dasboard';
+$currentPage = 'DeKUT-IMS-Dashboard';
 include('header.php');
 include('sidebarnav.php');
 ?>

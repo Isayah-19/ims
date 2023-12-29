@@ -26,6 +26,24 @@ if ($result->num_rows > 0) {
             $course = 'BBA';
         }elseif (strpos($stud_regNo, 'E021') !== false) {
             $course = 'EEE';
+        }elseif (strpos($stud_regNo, 'E024') !== false) {
+            $course = 'BScCiv';
+        } elseif (strpos($stud_regNo, 'E033') !== false) {
+            $course = 'BEDCiv';
+        } elseif (strpos($stud_regNo, 'E034') !== false) {
+            $course = 'BScCHEM';
+        } elseif (strpos($stud_regNo, 'E022') !== false) {
+            $course = 'BScMECH';
+        } elseif (strpos($stud_regNo, 'E023') !== false) {
+            $course = 'BScMEC';
+        }elseif (strpos($stud_regNo, 'E029') !== false) {
+            $course = 'BEDMEC';
+        }elseif (strpos($stud_regNo, 'E020') !== false) {
+            $course = 'BScTIE';
+        } elseif (strpos($stud_regNo, 'E028') !== false) {
+            $course = 'BEDEE';
+        }elseif (strpos($stud_regNo, 'T056') !== false) {
+            $course = 'BTEBC';
         }
 
         $data[] = [

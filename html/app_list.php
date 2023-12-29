@@ -9,7 +9,7 @@ $result = $db->query($sql);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Page Title</title>
+  <title>Counseling Appointments</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,9 +22,8 @@ $result = $db->query($sql);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <!-- Your existing HTML content here -->
 
-  <!-- Add the modal code and script mentioned in the previous response here -->
+
   <?php 
 $currentPage ='DeKUT-IMS-Dasboard';
 include('header.php');
@@ -92,7 +91,7 @@ include('sidebarnav.php');
 				<tbody>
 					<?php 
 					$i = 1;
-                    $qry = $db->query("SELECT s.stud_fullname,a.date_sched,a.status,a.id as aid from `stud_profile` s inner join `appointments` a on s.stud_Id = a.stud_id  order by unix_timestamp(a.date_sched) desc ");
+					$qry = $db->query("SELECT s.stud_fullname,a.date_sched,a.status,a.id as aid from `stud_profile` s inner join `appointments` a on s.stud_Id = a.stud_id order by unix_timestamp(a.date_sched) desc ");
                     while($row = $qry->fetch_assoc()):
 					?>
 					
@@ -141,26 +140,28 @@ include('sidebarnav.php');
 	</div>
 </div>
 
-<!-- Add this code inside the <body> tag of your HTML document -->
+
 <div class="modal fade" id="create_new_modal" tabindex="-1" role="dialog" aria-labelledby="create_new_modal_label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="create_new_modal_label">Create New Appointment</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+	<div class="modal-header" style="background-color:#07847d; color:#fff">
+                <div class="col-11">
+                    <h4 class="modal-title">Create New Appointment</h4>
+                </div>
+                <div class="col-1 text-right">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
+                </div>
+            </div>
       <div class="modal-body">
-        <form id="create_appointment_form" >
+        <form id="create_appointment_form">
           <div class="form-group">
             <label for="stud_id">Student Registration Number:</label>
-            <input type="text" class="form-control" id="stud_id" name="stud_id" required>
+            <input type="text" class="form-control" id="stud_regNo" name="stud_regNo" required>
           </div>
-          <div class="form-group">
+         <!-- <div class="form-group">
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" name="email" required>
-          </div>
+          </div>-->
           <div class="form-group">
             <label for="couns_issue">Counseling Issue:</label>
             <input type="text" class="form-control" id="couns_issue" name="couns_issue" required>
@@ -184,7 +185,6 @@ include('sidebarnav.php');
   </div>
 </div>
 
-<!-- Add this code inside the <body> tag of your HTML document -->
 <script>
   $(document).ready(function() {
     // Show the modal when the "Create New" button is clicked

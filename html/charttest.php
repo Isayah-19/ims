@@ -19,7 +19,7 @@
       var pieChart = new CanvasJS.Chart("pieChartContainer", {
         animationEnabled: true,
         title: {
-          text: "Distribution of Counseling Cases by Nature (Pie Chart)"
+          text: "Distribution of Counseling Cases by Nature"
         },
         data: [{
           type: "pie",
@@ -34,7 +34,7 @@
       var barChart = new CanvasJS.Chart("barChartContainer", {
         animationEnabled: true,
         title: {
-          text: "Counseling Academic Year vs Nature of Case (Bar Chart)"
+          text: "Counseling Academic Year vs Nature of Case"
         },
         axisX: {
           title: "Academic Year"
@@ -72,7 +72,7 @@
         },
         axisX: {
           title: "Date",
-          valueFormatString: "DD MMM YYYY" // Customize the date format as needed
+          valueFormatString: "YYYY MMM DD" // Customize the date format as needed
         },
         axisY: {
           title: "Number of Cases",

@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="images/favicon.png">
-    <title>DeKUT-IMS-Dasboard</title>
+    <title>DeKUT-IMS-Dashboard</title>
     <!--Core CSS -->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -357,7 +357,7 @@ include('sidebarnav.php');
         </center>
     </section>
 
-<div class="col-md-12">
+<!--<div class="col-md-12">-->
 <section class="panel">
 
 <div class="panel-body">

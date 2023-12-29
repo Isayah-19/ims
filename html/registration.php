@@ -42,15 +42,16 @@
     <div class="container">
 
         <div class="form-signin" >
-            <h2 class="form-signin-heading">registration now</h2>
+            <h2 class="form-signin-heading">Sign Up now</h2>
             <div class="login-wrap">
                 <p>Enter your personal details below</p>
                 <form action="SignUpSession.php" method="POST">
-                <input type="text" name="USER_FNAME" class="form-control" placeholder="First Name" required="required" autofocus>
+               <!-- <input type="text" name="USER_FNAME" class="form-control" placeholder="First Name" required="required" autofocus>
                 <input type="text" name="USER_MNAME" class="form-control" placeholder="Middle Name">
-                <input type="text" name="USER_LNAME" class="form-control" placeholder="Last Name" required="required">
-                <input type="text" name="USERNAME" class="form-control" placeholder="User Name" required="required">
-                <input type="password" name="USER_PASSWORD" class="form-control" placeholder="Password" required="required">
+                <input type="text" name="USER_LNAME" class="form-control" placeholder="Last Name" required="required">-->
+                <input type="text" name="username" class="form-control" placeholder="User Name" required="required">
+                <input type="text" name="user_role" class="form-control" placeholder="User Role" required="required">
+                <input type="password" name="user_password" class="form-control" placeholder="Password" required="required">
                 <div class="form-control">
                     <label>
                         Upload a Profile Picture: 
