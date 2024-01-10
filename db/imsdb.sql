@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2023 at 04:11 PM
+-- Generation Time: Jan 10, 2024 at 10:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -141,12 +141,21 @@ INSERT INTO `active_semester` (`sem_id`, `activesem_name`, `sem_isactive`, `sem_
 
 CREATE TABLE `appointments` (
   `id` int(30) NOT NULL,
-  `stud_id` int(30) NOT NULL,
+  `stud_regNo` varchar(20) NOT NULL,
   `date_sched` datetime NOT NULL,
   `couns_issue` text NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `stud_regNo`, `date_sched`, `couns_issue`, `status`, `date_created`) VALUES
+(1, 'C027-01-0823/2020', '2024-01-17 11:49:00', 'Academic Issues', 0, '2024-01-10 11:52:54'),
+(2, 'C027-01-0836/2020', '2024-01-12 12:00:00', 'Academic Issues', 0, '2024-01-10 12:08:36'),
+(3, 'C027-01-0836/2020', '2024-01-15 08:30:00', 'Financial Issues', 1, '2024-01-10 12:24:36');
 
 -- --------------------------------------------------------
 
@@ -170,6 +179,22 @@ INSERT INTO `batch_details` (`batchId`, `batch_code`, `batch_yr`, `batch_display
 (2, '20-21', '2020-2021', 'Active'),
 (3, '21-22', '2021-2022', 'Active'),
 (4, '22-23', '2022-2023', 'Active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `batch_group`
+--
+
+CREATE TABLE `batch_group` (
+  `batch_id` int(11) NOT NULL,
+  `batch_approach` varchar(50) NOT NULL,
+  `batch_bg` text DEFAULT NULL,
+  `batch_goals` text DEFAULT NULL,
+  `batch_comments` text DEFAULT NULL,
+  `batch_recomm` text DEFAULT NULL,
+  `batch_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -246,6 +271,19 @@ INSERT INTO `counseling` (`couns_Id`, `couns_code`, `apprcode`, `stud_regNo`, `v
 (65, 'CC044-23/24', 2, 'E020-01-0787/2021', 62, '2023-12-04 11:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 6, 'Personal development exploration', 'Self-improvement techniques', 'Personal growth plan', 'Follow-up sessions for personal growth assessment'),
 (66, 'CC045-23/24', 1, 'E020-01-0826/2020', 63, '2023-12-04 12:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 8, 'Financial stress management', 'Budgeting and planning', 'Financial resources exploration', 'Follow-up sessions for financial wellness'),
 (67, 'CC046-23/24', 4, 'T056-01-0826/2020', 64, '2023-12-04 13:00:00', '2023-2024', 'Semester One', 'Individual Counseling', 'Walk-in', 5, 'Academic guidance', 'Career exploration', 'Supporting decision-making', 'Goal-setting and achievement plan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `counseling_group`
+--
+
+CREATE TABLE `counseling_group` (
+  `grp_counseling_id` int(11) NOT NULL,
+  `grp_stud_regno` varchar(100) NOT NULL,
+  `grp_stud_name` varchar(100) NOT NULL,
+  `grp_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -784,7 +822,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `username`, `user_referenced`, `user_email`, `user_password`, `reset_link_token`, `exp_date`, `user_role`, `user_date_add`, `user_date_mod`, `user_display_stat`) VALUES
-(1, 'Isayah', '', 'isayaopiyo0@gmail.com', 'Bav1er@039', '11266af83101b33fd444d90405b8197d5267', '2023-12-29', 'Peer counselor', '2023-10-24 10:08:38', '2023-10-24 10:08:38', 'Active'),
+(1, 'Isayah', '', 'isayaopiyo0@gmail.com', '$2y$10$iiBchRBKX3BSpQ44dkgRReM.xHDqDOSxp19y0.A8y4uJ0.DOMAV7m', '', '0000-00-00', 'Peer counselor', '2023-10-24 10:08:38', '2023-10-24 10:08:38', 'Active'),
 (3, 'Tester00', '', '', 'Bav1er@039', NULL, NULL, 'Peer counselor', '2023-10-24 10:12:41', '2023-10-24 10:12:41', 'Active'),
 (4, 'Tester007', '', '', 'Bav1er@039', NULL, NULL, 'Guidance Counselor', '2023-10-24 10:28:09', '2023-10-24 10:28:09', 'Active'),
 (5, 'SysAdmin', '', '', 'Bav1er@039', NULL, NULL, 'System Administrator', '2023-10-24 17:51:26', '2023-10-24 17:51:26', 'Active'),
@@ -860,8 +898,7 @@ ALTER TABLE `active_semester`
 -- Indexes for table `appointments`
 --
 ALTER TABLE `appointments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `studref` (`stud_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `batch_details`
@@ -869,6 +906,13 @@ ALTER TABLE `appointments`
 ALTER TABLE `batch_details`
   ADD PRIMARY KEY (`batchId`),
   ADD UNIQUE KEY `unq_Batch_yr` (`batch_yr`);
+
+--
+-- Indexes for table `batch_group`
+--
+ALTER TABLE `batch_group`
+  ADD PRIMARY KEY (`batch_id`),
+  ADD KEY `batch_approach` (`batch_approach`);
 
 --
 -- Indexes for table `counseling`
@@ -884,6 +928,13 @@ ALTER TABLE `counseling`
   ADD KEY `FK_cnslngstdnofrnc` (`stud_regNo`),
   ADD KEY `FK_cnslngapprcd` (`apprcode`),
   ADD KEY `FK_cnslngsmstrrfrnc` (`couns_sem`);
+
+--
+-- Indexes for table `counseling_group`
+--
+ALTER TABLE `counseling_group`
+  ADD PRIMARY KEY (`grp_counseling_id`),
+  ADD KEY `grp_id` (`grp_id`);
 
 --
 -- Indexes for table `couns_appointmentype`
@@ -1030,7 +1081,7 @@ ALTER TABLE `active_semester`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `batch_details`
@@ -1039,10 +1090,22 @@ ALTER TABLE `batch_details`
   MODIFY `batchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `batch_group`
+--
+ALTER TABLE `batch_group`
+  MODIFY `batch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT for table `counseling`
 --
 ALTER TABLE `counseling`
   MODIFY `couns_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- AUTO_INCREMENT for table `counseling_group`
+--
+ALTER TABLE `counseling_group`
+  MODIFY `grp_counseling_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `couns_appointmentype`
@@ -1157,17 +1220,17 @@ ALTER TABLE `active_semester`
   ADD CONSTRAINT `FK_activeSem_name` FOREIGN KEY (`activesem_name`) REFERENCES `semester` (`sem_name`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `appointments`
---
-ALTER TABLE `appointments`
-  ADD CONSTRAINT `studref` FOREIGN KEY (`stud_id`) REFERENCES `stud_profile` (`stud_Id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
 -- Constraints for table `counseling`
 --
 ALTER TABLE `counseling`
   ADD CONSTRAINT `FK_cnslngapprcd` FOREIGN KEY (`apprcode`) REFERENCES `couns_approach` (`appr_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_cnslngntrfcsrfrnc` FOREIGN KEY (`nature_of_case`) REFERENCES `nature_of_case` (`case_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `counseling_group`
+--
+ALTER TABLE `counseling_group`
+  ADD CONSTRAINT `counseling_group_ibfk_1` FOREIGN KEY (`grp_id`) REFERENCES `batch_group` (`batch_id`);
 
 --
 -- Constraints for table `couns_details`
