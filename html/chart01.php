@@ -5,7 +5,14 @@
 <script type="text/javascript" src="canvasjs/canvasjs.min.js"></script>
 </head>
 <body>
-  <div id="pieChartContainer" style="height: 300px; width: 100%;"></div>
+
+  <?php 
+$currentPage = 'DeKUT-IMS-Dashboard';
+include('header.php');
+include('sidebarnav.php');
+?>
+
+<div id="pieChartContainer" style="height: 400px; width: calc(75% - 220px); margin-top: 50px; padding: 20px; box-sizing: border-box; display: flex; justify-content: flex-end;"></div>
 
   <script type="text/javascript">
     window.onload = function () {

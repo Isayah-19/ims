@@ -91,7 +91,7 @@ include('sidebarnav.php');
 				<tbody>
 					<?php 
 					$i = 1;
-					$qry = $db->query("SELECT s.stud_fullname,a.date_sched,a.status,a.id as aid from `stud_profile` s inner join `appointments` a on s.stud_Id = a.stud_id order by unix_timestamp(a.date_sched) desc ");
+					$qry = $db->query("SELECT s.stud_fullname,a.date_sched,a.status,a.stud_regNo as aid from `stud_profile` s inner join `appointments` a on s.stud_regNo = a.stud_regNo order by unix_timestamp(a.date_sched) desc ");
                     while($row = $qry->fetch_assoc()):
 					?>
 					

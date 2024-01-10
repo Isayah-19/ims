@@ -39,10 +39,10 @@
 
     <!--Intellisence-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-           
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -58,22 +58,22 @@ if(isset($_POST['search']))
     $valueToSearch = $_POST['filter'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT `BATCH_ID`,`BATCH_APPROACH`,`BATCH_bg`,`BATCH_goals`,`BATCH_comments`,BATCH_DATE,`BATCH_recomm`
-FROM t_batch_group 
-WHERE BATCH_APPROACH = '$valueToSearch'
-ORDER BY `BATCH_DATE` DESC";
+    $query = "SELECT `batch_id`,`batch_approach`,`batch_bg`,`batch_goals`,`batch_comments`,batch_date,`batch_recomm`
+FROM batch_group 
+WHERE batch_approach = '$valueToSearch'
+ORDER BY `batch_date` DESC";
     $search_result = filterTable($query);
     
 }
  else {
-    $query = "SELECT `BATCH_ID`,`BATCH_APPROACH`,`BATCH_bg`,`BATCH_goals`,`BATCH_comments`,BATCH_DATE,`BATCH_recomm`
-FROM `t_batch_group` 
-ORDER BY `BATCH_DATE` DESC";
+    $query = "SELECT `batch_id`,`batch_approach`,`batch_bg`,`batch_goals`,`batch_comments`,batch_date,`batch_recomm`
+FROM `batch_group` 
+ORDER BY `batch_date` DESC";
     $search_result = filterTable($query);
 } 
 function filterTable($query)
 {
-    $db = mysqli_connect('localhost','root','','g&csms_db');
+    $db = mysqli_connect('localhost','root','','imsdb');
     $filter_Result = mysqli_query($db, $query);
     return $filter_Result;
 }
@@ -105,9 +105,9 @@ function filterTable($query)
                         Group Counseling Records
                     </header>
                     <div class="panel-body">
-                   <div>
-                        <a href="#modal" data-toggle="modal" class="btn btn-primary"> Start Counseling</a>
-                    </div><br>
+                    <div>
+                    <a href="#modal" data-toggle="modal" class="btn btn-primary">Start Counseling</a>
+                </div><br>
                     <div class="col-md-6" style="padding-left:0px">
                     <form action="counseling_page_group.php" method="POST">
                         <div class="row">
@@ -129,7 +129,7 @@ function filterTable($query)
                     <thead>
                     <tr>
                         <th>Group Number</th>
-                        <th class="hidden-phone">Counseling Approach</th>
+                        <th class="hidden-phone">Counseling approach</th>
                         <th class="hidden-phone">Counseling Date</th>
                         <th>Action</th>
                     </tr>
@@ -138,14 +138,14 @@ function filterTable($query)
                     <?php
 include('config.php');
 
-  /*$sql= "SELECT `BATCH_ID`,`BATCH_APPROACH`,`BATCH_bg`,`BATCH_goals`,`BATCH_comments`,`BATCH_DATE`,`BATCH_recomm`,`grp_COUNSELING_ID`,
-  `grp_STUD_NO`,`grp_STUD_NAME`,`grp_id`
-FROM `t_batch_group` 
-INNER JOIN t_counseling_group On grp_id = BATCH_ID
-ORDER BY `BATCH_DATE` DESC";*/
-$sql= "SELECT `BATCH_ID`,`BATCH_APPROACH`,`BATCH_bg`,`BATCH_goals`,`BATCH_comments`,`BATCH_DATE`,`BATCH_recomm`
-FROM `t_batch_group` 
-ORDER BY `BATCH_DATE` DESC";
+  /*$sql= "SELECT `batch_id`,`batch_approach`,`batch_bg`,`batch_goals`,`batch_comments`,`batch_date`,`batch_recomm`,`grp_COUNSELING_id`,
+  `grp_stud_regno`,`grp_stud_name`,`grp_id`
+FROM `batch_group` 
+INNER JOIN counseling_group On grp_id = batch_id
+ORDER BY `batch_date` DESC";*/
+$sql= "SELECT `batch_id`,`batch_approach`,`batch_bg`,`batch_goals`,`batch_comments`,`batch_date`,`batch_recomm`
+FROM `batch_group` 
+ORDER BY `batch_date` DESC";
 
 $query = mysqli_query($db, $sql);
 
@@ -155,20 +155,20 @@ if (!$query) {
 
     /* fetch object array */
     while ($row = mysqli_fetch_assoc($search_result)) 
-        {       $batch_ID=$row['BATCH_ID']; 
-                $app=$row['BATCH_APPROACH'];
-                $bg=$row['BATCH_bg'];
-                $goals=$row['BATCH_goals'];
-                $comments=$row['BATCH_comments'];
-                $recomm=$row['BATCH_recomm'];
-                $date=$row['BATCH_DATE'];
-               // $name=$row["grp_STUD_NAME"];
+        {       $batch_id=$row['batch_id']; 
+                $app=$row['batch_approach'];
+                $bg=$row['batch_bg'];
+                $goals=$row['batch_goals'];
+                $comments=$row['batch_comments'];
+                $recomm=$row['batch_recomm'];
+                $date=$row['batch_date'];
+               // $name=$row["grp_stud_name"];
     ?>
                     <tr>
-                    <td><?php echo $batch_ID; ?></td>
+                    <td><?php echo $batch_id; ?></td>
                     <td><?php echo $app; ?></td>
                     <td><?php echo $date; ?></td>
-                    <td><button class="btn btn-primary" name="view" value="View" id="" data-toggle="modal" href="#Viewmodal<?php echo $batch_ID; ?>"
+                    <td><button class="btn btn-primary" name="view" value="View" id="" data-toggle="modal" href="#Viewmodal<?php echo $batch_id; ?>"
                     <i class="fa fa-eye"> View</i></button></td>
                </tr>
                     </tfoot>
@@ -221,7 +221,7 @@ if (!$query) {
                         </div>
                 
                 <!--MODALSSSS-->
-                            <div class="modal fade" id="Viewmodal<?php echo $batch_ID; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="Viewmodal<?php echo $batch_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color:#07847d; color:white">
@@ -230,12 +230,12 @@ if (!$query) {
                                             <?php 
                                             include("config.php");
 
-                                            $sql= "SELECT `BATCH_ID`,`BATCH_APPROACH`,`BATCH_bg`,`BATCH_goals`,`BATCH_comments`,`BATCH_DATE`,`BATCH_recomm`,`grp_COUNSELING_ID`,
-                                                  `grp_STUD_NO`,`grp_STUD_NAME`,`grp_id`
-                                                FROM `t_batch_group` 
-                                                INNER JOIN t_counseling_group On grp_id = BATCH_ID
-                                                WHERE BATCH_ID='$batch_ID'
-                                                ORDER BY `BATCH_DATE` DESC";
+                                            $sql= "SELECT `batch_id`,`batch_approach`,`batch_bg`,`batch_goals`,`batch_comments`,`batch_date`,`batch_recomm`,`grp_COUNSELING_id`,
+                                                  `grp_stud_regno`,`grp_stud_name`,`grp_id`
+                                                FROM `batch_group` 
+                                                INNER JOIN counseling_group On grp_id = batch_id
+                                                WHERE batch_id='$batch_id'
+                                                ORDER BY `batch_date` DESC";
 
                                             $queryy = mysqli_query($db, $sql);
                                             if (!$queryy) {
@@ -243,9 +243,9 @@ if (!$query) {
                                                 }
                                                 while ($row = mysqli_fetch_assoc($queryy)) 
                                             { 
-                                                echo $batch_ID;
+                                                echo $batch_id;
 
-                                                $name=$row['grp_STUD_NAME'];
+                                                $name=$row['grp_stud_name'];
 
                                              ?></h4>
                                         </div>

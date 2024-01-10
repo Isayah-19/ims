@@ -63,6 +63,7 @@ if(isset($_POST['password-reset-token']) && $_POST['user_email'])
     if($mail->Send())
     {
       echo "<p style='text-align:center;' >Check Your Email and Click on the link sent to your email</p>";
+      header("refresh:5;url=login.php");
     }
     else
     {

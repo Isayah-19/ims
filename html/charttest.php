@@ -5,12 +5,18 @@
 <script type="text/javascript" src="canvasjs/canvasjs.min.js"></script>
 </head>
 <body>
+<?php 
+$currentPage = 'DeKUT-IMS-Dashboard';
+include('header.php');
+include('sidebarnav.php');
+?>
 
 
-  <div id="pieChartContainer" style="height: 300px; width: 33%; float: left;"></div>
-  <div id="barChartContainer" style="height: 300px; width: 33%; float: center;"></div>
-  <div id="scatterChartContainer" style="height: 300px; width: 33%; float: right;"></div>
-  <div id="chartContainer" style="height: 300px; width: 50%;"></div>
+
+  <div id="pieChartContainer" style="height: 300px; width: calc(75% - 220px); margin-top: 50px; padding: 20px; box-sizing: border-box; display: flex; justify-content: flex-end;"></div>
+  <div id="barChartContainer" style="height: 300px; width: calc(75% - 220px); margin-top: 50px; padding: 20px; box-sizing: border-box; display: flex; justify-content: flex-end;"></div>
+  <div id="scatterChartContainer" style="height: 300px;width: calc(75% - 220px); margin-top: 50px; padding: 20px; box-sizing: border-box; display: flex; justify-content: flex-end;"></div>
+  <div id="chartContainer" style="height: 300px; width: calc(75% - 220px); margin-top: 50px; padding: 20px; box-sizing: border-box; display: flex; justify-content: flex-end;"></div>
 
 
   <script type="text/javascript">

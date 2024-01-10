@@ -31,12 +31,12 @@
                         <span>Visit Logs</span>
                     </a>
                 </li>
-                <li>
+              <!--  <li>
                     <a <?php if($currentPage=='DeKUT-IMS-Files') { echo 'class="active"';} ?> href="TypeA_FilesAndDocuments.php">
                         <i class="fa fa-book"></i>
                         <span>Files and Documents </span>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a <?php if($currentPage=='DeKUT-IMS-Appointment') { echo 'class="active"';} ?> href="app_list.php">
                         <i class="fa fa-calendar"></i>
@@ -44,9 +44,13 @@
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a <?php if($currentPage=='DeKUT-IMS-Reports') { echo 'class="active"';} ?> href="counselingreport.php">
+                    <a <?php if($currentPage=='DeKUT-IMS-Reports') { echo 'class="active"';} ?> href="chart2.php">
                         <i class="fa fa-bar-chart-o"></i>
                         <span>Reports</span>
+                        <ul class="sub">
+                            <li><a href="charttest.php"><i class="fa fa-bar-chart-o"></i>Cases Reports</a></li>
+                            <li><a href="chart01.php"><i class="fa fa-bar-chart-o"></i>Cases by Course</a></li>
+                        </ul>
                     </a>
                 </li>
                 

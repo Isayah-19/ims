@@ -29,5 +29,6 @@ echo "<h1 style='text-align: center; color:red;  height: 100%;
   align-items: center;
   justify-content: center;'><a href='$reset' style='color:red;'> Please try again!! </a></h1>";
 }
+header("refresh:5;url=login.php");
 }
 ?>
