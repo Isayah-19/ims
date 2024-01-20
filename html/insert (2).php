@@ -1,7 +1,7 @@
 <?php
 	
 $stud_id = $_REQUEST['stud_id'];
-$student_no = $_REQUEST['stud_no']	
+$student_no = $_REQUEST['stud_no'];	
 $name = $_REQUEST['name'];
 $type = $_REQUEST['type'];
 $comments = $_REQUEST['comments'];

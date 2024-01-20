@@ -186,9 +186,13 @@ if (!$query) {
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modal" class="modal fade" method="submit">
                             <div class="modal-dialog">
                                 <div class="modal-content" >
-                                    <div class="modal-header">
-                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                        <h4>Type of Counseling:</h4>
+                                <div class="modal-header" style="background-color:#07847d; color:#fff">
+                                            <div class="col-11">
+                                                <h4 class="modal-title">Type of Counseling</h4>
+                                            </div>
+                                            <div class="col-1 text-right">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
+                                            </div>
                                     </div>
                                     <div class="modal-body">
                                     <div class="form-group" id="selectType" style="text-align:center; padding:20px 0px">
@@ -224,9 +228,9 @@ if (!$query) {
                             <div class="modal fade" id="Viewmodal<?php echo $batch_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header" style="background-color:#07847d; color:white">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title"><i class="fa fa-user"></i>&nbsp Batch: 
+                                    <div class="modal-header" style="background-color:#07847d; color:#fff">
+                                            <div class="col-11">
+                                                 <h4 class="modal-title"><i class="fa fa-user"></i>&nbsp Batch:
                                             <?php 
                                             include("config.php");
 
@@ -249,6 +253,10 @@ if (!$query) {
 
                                              ?></h4>
                                         </div>
+                                            <div class="col-1 text-right">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
+                                            </div>
+                                    </div>
                                         <div class="modal-body">
                                         <div class="col-md-12 well">
                                             <h4 class="col-md-8"style="padding-left:0px"><i class="fa fa-pencil"></i>&nbsp <?php echo $name; ?></h4>

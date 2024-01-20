@@ -44,18 +44,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
 
-    <!-- <link href="data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">   -->
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -86,46 +74,42 @@ include('sidebarnav.php');
                         </li>
                     </ul>
                 </div>
-            </div>
-<div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <header class="panel-heading">
-                       Group Counseling
-                        <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                         </span>
-                    </header>
+         </div>
+            <div class="row">
+                <div class="col-sm-12">
+                     <section class="panel">
+                       <header class="panel-heading">Group Counseling
+                                <span class="tools pull-right">
+                                        <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                        <a href="javascript:;" class="fa fa-cog"></a>
+                                        <a href="javascript:;" class="fa fa-times"></a>
+                                    </span>
+                      </header>
             <section class="panel">
-                    <div class="panel-body">
-                          
-                                        <form action="addtrytry.php" method="POST">
+                <div class="panel-body">
+                     <form action="addtrytry.php" method="POST">
 
-                                            <div class="form-content">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <p><button type="button" id="btnAdd" class="btn btn-primary" ><i class="fa fa-plus"></i> Add Student(s)</button></p>
-                                                    </div>
-                                                </div>
-                                                <?php  
+                           <div class="form-content">
+                               <div class="row">
+                                    <div class="col-md-12">
+                                            <p><button type="button" id="btnAdd" class="btn btn-primary" ><i class="fa fa-plus"></i> Add Student(s)</button></p>
+                                    </div>
+                               </div>
+                         <?php  
 
-                                                     include('config.php');
+                            include('config.php');
+                                  {                        
+                                        $result = mysqli_query($db, "SELECT MAX(batch_id) FROM batch_group");
+                                        $row = mysqli_fetch_array($result);
+                                        $last = $row[0];
+                                        $finalid = $last + 1;
 
-                                                    {
-                                                        
-                                                    $result = mysqli_query($db, "SELECT MAX(Batch_ID) FROM t_batch_group");
-                                                    $row = mysqli_fetch_array($result);
-                                                    $last = $row[0];
-                                                    $finalid = $last + 1;
+                        ?>
 
-                                                ?>
-
-                                                 <div class="form-group">
-                                                    <input type="hidden" name="batch_id" value="<?php echo $finalid; ?>">
-                                                </div> <?php } ?>
-                                                 
+                          <div class="form-group">
+                                <input type="hidden" name="batch_id" value="<?php echo $finalid; ?>">
+                         </div> <?php } ?>
+                               
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div style="padding: 1px; margin-bottom: 10px; background-color: #E0E1E7;">                                                             
@@ -271,9 +255,7 @@ include('sidebarnav.php');
 <script type="text/javascript" src="js/bootstrap-fileupload/bootstrap-fileupload.js"></script>
 <script type="text/javascript" src="js/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
 <script type="text/javascript" src="js/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-<script type="text/javascript" src="js/bootstrap-daterangepicker/moment.min.js"></script><!-- 
-<script type="text/javascript" src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript" src="js/bootstrap-daterangepicker/daterangepicker.js"></script> -->
+<script type="text/javascript" src="js/bootstrap-daterangepicker/moment.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 <script type="text/javascript" src="js/jquery-multi-select/js/jquery.multi-select.js"></script>
 <script type="text/javascript" src="js/jquery-multi-select/js/jquery.quicksearch.js"></script>
@@ -291,12 +273,6 @@ include('sidebarnav.php');
 <script src="js/easypiechart/jquery.easypiechart.js"></script>
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
-<!--jQuery Flot Chart-->
-<!-- <script src="js/flot-chart/jquery.flot.js"></script>
-<script src="js/flot-chart/jquery.flot.tooltip.min.js"></script>
-<script src="js/flot-chart/jquery.flot.resize.js"></script>
-<script src="js/flot-chart/jquery.flot.pie.resize.js"></script> -->
-
 <!--dynamic table-->
 <script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>

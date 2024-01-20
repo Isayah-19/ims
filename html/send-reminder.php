@@ -33,7 +33,10 @@ if (isset($_POST['stud_regNo'])) {
     $query = "SELECT a.*, p.stud_email, p.stud_fullname 
               FROM appointments a
               JOIN stud_profile p ON a.stud_regNo = p.stud_regNo
-              WHERE a.stud_regNo = '$studentRegNo' AND a.date_sched > NOW()";
+              WHERE a.stud_regNo = '$studentRegNo' AND a.date_sched > NOW()
+              ORDER BY a.date_sched ASC
+              LIMIT 1";
+
 
     $result = mysqli_query($db, $query);
 

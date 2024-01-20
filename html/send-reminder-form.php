@@ -7,12 +7,7 @@
 </head>
 <body>
 
-<?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
-
-?>
 
 <form action="send-reminder.php" method="post">
     <div class="form-group">

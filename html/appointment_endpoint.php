@@ -32,4 +32,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = ['status' => 'error', 'message' => 'Method Not Allowed'];
     echo json_encode($response);
 }
-?>
