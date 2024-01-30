@@ -83,8 +83,8 @@ include('sidebarnav.php');
                         <div>
                         <button data-toggle="modal" data-target="#Add" class="btn btn-primary">
                                         <i class="fa fa-plus"></i> Add</button>
-                            <button href="#ImportModal" data-toggle="modal" class="btn btn-warning">
-                                        <i class="fa fa-plus"></i> Import</button>          
+                           <!--  <button href="#ImportModal" data-toggle="modal" class="btn btn-warning">
+                                        <i class="fa fa-plus"></i> Import</button> -->         
                         </div>
 
                         <br></br>

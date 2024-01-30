@@ -73,10 +73,10 @@ if (isset($_POST['stud_regNo'])) {
         // Send email
         if ($mail->Send()) {
             echo "<p style='text-align:center;'>Reminder email sent successfully</p>";
-            header("refresh:1;url=app-test.php");
+            header("refresh:1;url=appointment.php");
         } else {
             echo "Mail Error - >" . $mail->ErrorInfo;
         }
     }
 }
-?>
+

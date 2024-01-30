@@ -50,14 +50,15 @@
                 <input type="text" name="USER_MNAME" class="form-control" placeholder="Middle Name">
                 <input type="text" name="USER_LNAME" class="form-control" placeholder="Last Name" required="required">-->
                 <input type="text" name="username" class="form-control" placeholder="User Name" required="required">
+                <input type="text" name="user_email" class="form-control" placeholder="User Email" required="required">
                 <input type="text" name="user_role" class="form-control" placeholder="User Role" required="required">
                 <input type="password" name="user_password" class="form-control" placeholder="Password" required="required">
-                <div class="form-control">
+                <!-- <div class="form-control">
                     <label>
                         Upload a Profile Picture: 
                     </label>
                     <input type="file" accept="image/*"/>
-                </div>
+                </div>-->
                 <label class="checkbox">
                     <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
                 </label>

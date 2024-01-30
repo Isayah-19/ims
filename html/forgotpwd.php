@@ -65,7 +65,7 @@ button:hover {
 .Regbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #0077c8;
+    background-color: #065a07;
 }
 
 .error_message {

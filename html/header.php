@@ -63,7 +63,7 @@
             <i class="fa fa-sign-out"></i> Log Out
         </a>
             <!-- user login dropdown start-->
-        
+        <!--
         <li id="header_inbox_bar" class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <i class="fa fa-envelope-o"></i>
@@ -74,7 +74,7 @@
                         <p class="red">Messages</p>
                     </li>
                 </ul>
-        </li>
+        </li>-->
             <!-- <ul class="dropdown-menu extended logout">
                 <li>
                     <a href="Logout.php">

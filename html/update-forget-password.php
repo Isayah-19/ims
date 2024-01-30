@@ -31,4 +31,3 @@ echo "<h1 style='text-align: center; color:red;  height: 100%;
 }
 header("refresh:5;url=login.php");
 }
-?>

@@ -55,22 +55,22 @@ a,a:hover,a:focus {
     max-width:330px;
     margin:100px auto;
     background:#fff;
-    border-radius:5px;
     -webkit-border-radius:5px;
+    border-radius:5px;
 }
 .form-signin h2.form-signin-heading {
     margin:0;
     padding:35px 15px;
     text-align:center;
-    background:#aec785;
-    border-radius:5px 5px 0 0;
+    background:#065a07;
     -webkit-border-radius:5px 5px 0 0;
+    border-radius:5px 5px 0 0;
     color:#fff;
     font-size:18px;
     text-transform:uppercase;
     font-weight:300;
     font-family:'Open Sans',sans-serif;
-    border-bottom:10px solid #a0b87e;
+    border-bottom:10px solid #065a07;
 }
 .form-signin .checkbox {
     margin-bottom:14px;
@@ -96,14 +96,14 @@ a,a:hover,a:focus {
 }
 .form-signin input[type="text"],.form-signin input[type="password"] {
     margin-bottom:15px;
-    border-radius:5px;
     -webkit-border-radius:5px;
+    border-radius:5px;
     border:1px solid #eaeaea;
     box-shadow:none;
     font-size:12px;
 }
 .form-signin .btn-login {
-    background:#1fb5ac;
+    background:#065a07;
     color:#fff;
     text-transform:uppercase;
     font-weight:300;
@@ -117,7 +117,8 @@ a,a:hover,a:focus {
     font-weight:300;
 }
 .form-signin a,.form-signin a:hover {
-    color:#1fb5ac;
+    
+    color: #065a07;
 }
 .form-signin a:hover {
     text-decoration:underline;
@@ -241,7 +242,7 @@ ul.sidebar-menu li ul.sub li a {
     color:#aeb2b7;
 }
 ul.sidebar-menu li ul.sub li a:hover,ul.sidebar-menu li ul.sub li.active a {
-    color:#1fb5ad;
+    color:#065a07;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
     -o-transition:all 0.3s ease;
@@ -641,7 +642,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 }
 /*search*/
 .search {
-    width:20px;
+    width:25px;
     -webkit-transition:all .3s ease;
     -moz-transition:all .3s ease;
     -ms-transition:all .3s ease;

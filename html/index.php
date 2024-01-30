@@ -34,14 +34,6 @@
     <link href="css/style-responsive.css" rel="stylesheet"/>
     <!--external css-->
     <link rel="stylesheet" type="text/css" href="js/gritter/css/jquery.gritter.css" />
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -50,9 +42,10 @@
 
 </head>
 <body>
+<!--
 <script src="/IMS/html/Highcharts-6.0.7/highcharts.js"></script>
 <script src="/IMS/html/Highcharts-6.0.7/data.js"></script>
-<script src="/IMS/html/Highcharts-6.0.7/drilldown.js"></script>
+<script src="/IMS/html/Highcharts-6.0.7/drilldown.js"></script>-->
 
 
 <?php 
