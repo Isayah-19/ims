@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2024 at 10:27 AM
+-- Generation Time: Feb 06, 2024 at 09:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -130,7 +130,7 @@ CREATE TABLE `active_semester` (
 --
 
 INSERT INTO `active_semester` (`sem_id`, `activesem_name`, `sem_isactive`, `sem_date_add`, `sem_date_mod`) VALUES
-(1, 'Semester One', '1', '2023-10-24 10:44:38', '2023-10-24 10:44:38'),
+(1, 'Semester One', '0', '2023-10-24 10:44:38', '2023-10-24 10:44:38'),
 (2, 'Semester Two', '1', '2023-12-19 17:48:35', '2023-12-19 17:48:35');
 
 -- --------------------------------------------------------
@@ -195,6 +195,13 @@ CREATE TABLE `batch_group` (
   `batch_recomm` text DEFAULT NULL,
   `batch_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `batch_group`
+--
+
+INSERT INTO `batch_group` (`batch_id`, `batch_approach`, `batch_bg`, `batch_goals`, `batch_comments`, `batch_recomm`, `batch_date`) VALUES
+(28, 'Cognitive Therapy', 'Test', 'Test', 'Test', 'Test', '2024-02-06 08:19:32');
 
 -- --------------------------------------------------------
 
@@ -284,6 +291,14 @@ CREATE TABLE `counseling_group` (
   `grp_stud_name` varchar(100) NOT NULL,
   `grp_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `counseling_group`
+--
+
+INSERT INTO `counseling_group` (`grp_counseling_id`, `grp_stud_regno`, `grp_stud_name`, `grp_id`) VALUES
+(30, 'C027-01-0836/2020 ', 'Isaya Onyango Opiyo', 28),
+(31, 'C025-01-0629/2020', 'Janet Victoria Odalo', 28);
 
 -- --------------------------------------------------------
 
@@ -1093,7 +1108,7 @@ ALTER TABLE `batch_details`
 -- AUTO_INCREMENT for table `batch_group`
 --
 ALTER TABLE `batch_group`
-  MODIFY `batch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `batch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `counseling`
@@ -1105,7 +1120,7 @@ ALTER TABLE `counseling`
 -- AUTO_INCREMENT for table `counseling_group`
 --
 ALTER TABLE `counseling_group`
-  MODIFY `grp_counseling_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `grp_counseling_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `couns_appointmentype`

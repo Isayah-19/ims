@@ -269,7 +269,7 @@ include('sidebarnav.php');
                     printf("Connect failed: %s\n", mysqli_connect_error());
                     exit();
                 }
-                if ($result = mysqli_query($db, "SELECT * FROM `counseling`")) {
+                if ($result = mysqli_query($db, "SELECT * FROM `counseling_group`")) {
                     /* determine number of rows result set */
                     $row_cnt = mysqli_num_rows($result);
                     printf(" 
