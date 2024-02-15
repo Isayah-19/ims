@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the SQL query and check for errors
     if (mysqli_query($db, $insertQuery)) {
         echo "<p style='text-align:center;'>Appointment added successfully</p>";
+        header("refresh:1;url=appointment.php");
     } else {
         echo "Error: " . $insertQuery . "<br>" . mysqli_error($db);
     }
@@ -52,7 +53,7 @@ if (isset($_POST['stud_regNo'])) {
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
         $mail->Username = "dekutcounseling@gmail.com";  // Set your Gmail email address
-        $mail->Password = "bzbt egfv ylws noos"; // Set your Gmail password
+        $mail->Password = "duxo efic mxda mtpu"; // Set your Gmail password
         $mail->SMTPSecure = 'tls';
         $mail->Host = "smtp.gmail.com";
         $mail->Port = "587";
@@ -79,4 +80,5 @@ if (isset($_POST['stud_regNo'])) {
         }
     }
 }
+
 

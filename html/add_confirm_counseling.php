@@ -51,7 +51,7 @@ if ($rowAppr['count'] > 0 && $rowCase['count'] > 0) {
     // Proceed with the INSERT operation
     $sql = "INSERT INTO `counseling` (`couns_code`, `stud_regNo`, `apprcode`, `couns_background`,`couns_acadYr`,`couns_sem`,`counseling_type`,`nature_of_case`, `couns_goals`,  
                                       `couns_comment`, `couns_recommendation`, `couns_appmnType`, `couns_date`) 
-            VALUES ('$counsCode', '$C_stud_no', '$C_app', '$C_couns_bg','2023-2024','Semester One','Individual Counseling','$C_case', '$C_goals', '$C_comments', '$C_recomm', '$C_appmnType', CURRENT_TIMESTAMP)";
+            VALUES ('$counsCode', '$C_stud_no', '$C_app', '$C_couns_bg','2023-2024','Semester Two','Individual Counseling','$C_case', '$C_goals', '$C_comments', '$C_recomm', '$C_appmnType', CURRENT_TIMESTAMP)";
 
     $result = mysqli_query($db, $sql);
 

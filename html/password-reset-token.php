@@ -46,7 +46,7 @@ if(isset($_POST['password-reset-token']) && $_POST['user_email'])
     // GMAIL username
     $mail->Username = "dekutcounseling@gmail.com"; //set your gmail here
     // GMAIL password
-    $mail->Password = "bzbt egfv ylws noos"; //set the password
+    $mail->Password = "duxo efic mxda mtpu"; //set the password
     $mail->SMTPSecure = 'tls';
     // sets GMAIL as the SMTP server
     $mail->Host = "smtp.gmail.com";
@@ -54,8 +54,8 @@ if(isset($_POST['password-reset-token']) && $_POST['user_email'])
     $mail->Port = "587";
     $mail->From='dekutcounseling@gmail.com'; //replace this with what you inserted on line 47
     $mail->FromName='DeKUT Counseling IMS';  //replace this with name you want to appear on receiver side as sender name
-    $mail->SMTPDebug = 0;
-    //$mail->SMTPDebug = 2;// This will output detailed debug information that may help identify the problem
+    //$mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 2;// This will output detailed debug information that may help identify the problem
     $mail->AddAddress($emailId, $row['username']); //on this we set receiver name and the second part is optional but that gets receiver name
     $mail->Subject  =  'Reset Password';
     $mail->IsHTML(true);

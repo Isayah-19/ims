@@ -162,6 +162,31 @@ include('sidebarnav.php');
 
                     </div>
                     <form action="add_counseling.php" method="POST">
+
+                    <div class="container mt-3">
+                        
+                        <div id="info"></div>
+                        <div class="float-right">
+                            <button id="start_button">Start</button>
+                        </div>
+                        <div id="results">
+                            <span id="final_span" class="final"></span>
+                            <span id="interim_span" class="interim"></span>
+                            <p>
+                        </div>
+                        <div class="row col-12 p-0 m-0">
+                            <div class="row col-12 col-md-8 col-lg-6 p-0 m-0">
+                                <select id="select_language"></select>
+                                <select id="select_dialect"></select>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-6 mt-3 mt-md-0 p-0 m-0">
+                            <div class="float-right">
+                                <button id="copy_button" class="btn btn-primary ">Copy</button>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
                         <div id="wysiwyg" name="wysiwyg" style=" padding-left:3px">
                                 <div class="form-group">
                                     <BR/>
@@ -171,6 +196,7 @@ include('sidebarnav.php');
                                     </div>
                                 </div>
                         </div>
+                        
                     
                         <!--MULTISELECT-->
                         <div class="form-group col-md-12" style="padding-top:20px">
@@ -193,11 +219,16 @@ include('sidebarnav.php');
                                                 <option value="12">Trauma and Grief</option>
                                                 <option value="13">Conflict Resolution</option>
                                                 <option value="14">Goal Setting and Motivation</option>
+                                                <option value="15">Other</option>
                                             </select>
+                                            <div id="other-textarea" style="display:none;">
+                                                <textarea id="other-input" class="wysihtml5 form-control" rows="4" cols="50"></textarea><br/><br/><br/>   
+                                            </div>
                                         </div>
-                                        <br/><br/><br/><br/>   
-                                    <label class="col-lg-3 control-label" style="font-size:14px">&nbsp&nbsp&nbsp&nbsp&nbspb.&nbsp&nbsp&nbspCounseling Approach(es):</label>
+                                        <br/><br/><br/> 
+                                    
                                     <div class="col-lg-5">
+                                    <label class="col-lg-3 control-label" style="font-size:14px">&nbsp&nbsp&nbsp&nbsp&nbspb.&nbsp&nbsp&nbspCounseling Approach(es):</label>
                                         <select multiple name="_app" id="e9" style="width:400px" class="populate" required="">
                                         
                                             <option value="1">Academic and Career Counseling</option>
@@ -525,7 +556,20 @@ include('sidebarnav.php');
           var display = $result;
           document.getElementById('counseling').innerHTML = display;
     }
+
+    $(document).ready(function() {
+    $('#e9').on('change', function() {
+        if (this.value === '15') {
+            $('#other-textarea').show();
+        } else {
+            $('#other-textarea').hide();
+        }
+    });
+});
 </script>
+
+<script src="js/languages.js"></script>
+      <script src="js/web-speech-api.js"></script>
 
 <script src="js/jquery.js"></script>
 <script src="bs3/js/bootstrap.min.js"></script>
