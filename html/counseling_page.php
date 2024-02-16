@@ -192,6 +192,7 @@ if (!$query) {
                 $recomm=$row['couns_recommendation'];
                 $apptype=$row['couns_appmnType'];
                 $date=$row['couns_date'];
+                $counselor_id=$row['counselor_id'];
     ?>
                     <tr>
                     <td><?php echo $no; ?></td>
@@ -265,6 +266,7 @@ if (!$query) {
 
                                         <div class="modal-body">
                                         <div class="col-md-12 well">
+                                            <h4 class="col-md-8"style="padding-left:0px"><i class="fa fa-user"></i>Counselor ID: &nbsp <?php echo $counselor_id; ?></h4>    
                                             <h4 class="col-md-8"style="padding-left:0px"><i class="fa fa-pencil"></i>&nbsp <?php echo $app; ?></h4>
                                             <h5 class="col-md-4" style="text-align:right"><i class="fa fa-thumb-tack"></i>&nbsp <?php echo $apptype; ?></h5>
                                             <h6 style="text-align:right"><i class="fa fa-calendar"></i>&nbsp <?php echo $date; ?></h6>

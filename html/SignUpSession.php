@@ -1,15 +1,15 @@
 <?php
 	include ("config.php");
 
-		//$userfname = $_POST['USER_FNAME'];
+		$userfname = $_POST['user_fname'];
 		//$usermname = $_POST['USER_MNAME'];
-		//$userlname = $_POST['USER_LNAME'];
+		$userlname = $_POST['user_lname'];
 		$usrname = $_POST['username'];
 		$em = $_POST['user_email'];
 		$userpassword = $_POST['user_password'];
 		$userrole = $_POST['user_role'];
-		//if(!isset($userfname,$usermname,$userlname,$usrname,$userpassword))
-		if(!isset($usrname,$userpassword))
+		if(!isset($userfname,$userlname,$usrname,$userpassword))
+		//if(!isset($usrname,$userpassword))
 		{
 			echo 'You need to fill out all fields<br/><br/>';
 		}
@@ -28,8 +28,8 @@
 				//$query = "INSERT INTO R_USER(USER_FNAME,USER_MNAME,USER_LNAME,user_role,username,user_password) 
 				//				values('".$userfname."','".$usermname."','".$userlname."','Student Assistant','".$usrname."','".$userpassword."')";
 				
-				$query = "INSERT INTO users(user_role,user_email,username,user_password) 
-								values('".$userrole."','".$em."','".$usrname."','".$userpassword."')";
+				$query = "INSERT INTO users(user_role,user_email,username,user_fname, user_lname, user_password) 
+								values('".$userrole."','".$em."','".$usrname."', '".$userfname."','".$userlname."','".$userpassword."')";
 				$result = mysqli_query($db,$query) or die(mysqli_error());
 				if ($result == 1)
 				{

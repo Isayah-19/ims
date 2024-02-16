@@ -46,9 +46,9 @@
             <div class="login-wrap">
                 <p>Enter your personal details below</p>
                 <form action="SignUpSession.php" method="POST">
-              <!--  <input type="text" name="USER_FNAME" class="form-control" placeholder="First Name" required="required" autofocus>
-                <input type="text" name="USER_MNAME" class="form-control" placeholder="Middle Name">
-                <input type="text" name="USER_LNAME" class="form-control" placeholder="Last Name" required="required">-->
+               <input type="text" name="user_fname" class="form-control" placeholder="First Name" required="required" autofocus>
+                <!-- <input type="text" name="USER_MNAME" class="form-control" placeholder="Middle Name">-->
+                <input type="text" name="user_lname" class="form-control" placeholder="Last Name" required="required">
                 <input type="text" name="username" class="form-control" placeholder="User Name" required="required">
                 <input type="password" name="user_password" class="form-control" placeholder="Password" required="required">
                 <label for="user_role">Select User Role:</label>

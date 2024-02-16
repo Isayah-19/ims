@@ -196,7 +196,8 @@ include('sidebarnav.php');
                                     </div>
                                 </div>
                         </div>
-                        
+                        <input type="hidden" name="counselor_id" value="<?php echo $_SESSION['ID']; ?>">
+
                     
                         <!--MULTISELECT-->
                         <div class="form-group col-md-12" style="padding-top:20px">

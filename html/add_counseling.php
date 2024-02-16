@@ -123,6 +123,7 @@ include('sidebarnav.php');
                                     $C_app=isset($_POST['_app']) ? $_POST['_app'] : '';
                                     $C_case=isset($_POST['_case']) ? $_POST['_case'] : '';
                                     $C_appmnType=isset($_POST['_appmnt']) ? $_POST['_appmnt'] : '';
+                                    $counselor_userId=isset($_POST['counselor_id']) ? $_POST['counselor_id'] : '';
 
 
 
@@ -191,7 +192,9 @@ include('sidebarnav.php');
                                                                                 <div class='form-group' style='display:none'>
                                                                                     <input type='text' class='form-control' name='_case' value='$C_case'> </div>   
                                                                                 <div class='form-group' style='display:none'>
-                                                                                    <input type='text' class='form-control' name='_appmnt' value='$C_appmnType'> </div>      
+                                                                                    <input type='text' class='form-control' name='_appmnt' value='$C_appmnType'> </div>
+                                                                                <div class='form-group' style='display:none'>
+                                                                                    <input type='text' class='form-control' name='counselor_id' value='$counselor_userId'> </div>      
                                                             <!--end HF-->
                                                             ";
 
