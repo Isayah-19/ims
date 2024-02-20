@@ -123,7 +123,7 @@
         </li>
         <!-- settings end -->
         <!-- inbox dropdown start-->
-        <li id="header_inbox_bar" class="dropdown">
+        <li id="headeinbox_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <i class="fa fa-envelope-o"></i>
                 <span class="badge bg-important">4</span>
@@ -187,7 +187,7 @@
         </li>
         <!-- inbox dropdown end -->
         <!-- notification dropdown start-->
-        <li id="header_notification_bar" class="dropdown">
+        <li id="headenotification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                 <i class="fa fa-bell-o"></i>
@@ -313,7 +313,7 @@
     <section id="main-content">
         <section class="wrapper">
            <?php
-$link = mysqli_connect("localhost", "root", "", "g&csms_db");
+$link = mysqli_connect("localhost", "root", "", "imsdb");
 
 /* check connection */
 if (mysqli_connect_errno()) {
@@ -321,7 +321,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-if ($result = mysqli_query($link, "SELECT `STUD_ID`, `STUD_NO`, `STUD_FNAME`, `STUD_MNAME`, `STUD_LNAME`, `STUD_COURSE`, `STUD_YR_LVL`, `STUD_SECTION`, `STUD_GENDER`, `STUD_EMAIL`, `STUD_CONTACT_NO`, `STUD_BIRTHDATE`, `STUD_BIRTHPLACE`, `STUD_ADDRESS`, `STUD_STATUS`, `STUD_REMARKS` FROM `r_stud_profile` WHERE `STUD_status` = 'Regular'")) {
+if ($result = mysqli_query($link, "SELECT `STUD_ID`, `STUD_NO`, `STUD_FNAME`, `STUD_MNAME`, `STUD_LNAME`, `STUD_COURSE`, `STUD_YLVL`, `STUD_SECTION`, `STUD_GENDER`, `STUD_EMAIL`, `STUD_CONTACT_NO`, `STUD_BIRTHDATE`, `STUD_BIRTHPLACE`, `STUD_ADDRESS`, `STUD_STATUS`, `STUD_REMARKS` FROM `stud_profile` WHERE `STUD_status` = 'Regular'")) {
 
     /* determine number of rows result set */
     $row_cnt = mysqli_num_rows($result);

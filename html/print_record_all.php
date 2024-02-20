@@ -82,7 +82,7 @@ class PDF extends FPDF
             $actualQuery = " SELECT
   `s`.`stud_regNo` AS `STUD_NO`,
   `s`.`stud_fullname` AS `STUD_NAME`,
-  `c`.`counselling_type` AS `COUNSELING_TYPE`,
+  `c`.`counseling_type` AS `COUNSELING_TYPE`,
   DATE_FORMAT(`c`.`couns_date`, '%M %d %Y') AS `COUNSELING_DATE`,
   (
     SELECT
@@ -91,7 +91,7 @@ class PDF extends FPDF
       `couns_approach` `a`
     WHERE
       (
-        `a`.`couns_appr_code` = `c`.`appr_code`
+        `a`.`couns_apprcode` = `c`.`apprcode`
       )
   ) AS `COUNSELING_APPROACH`,
   `c`.`couns_background` AS `COUNSELING_BG`,
@@ -100,8 +100,8 @@ class PDF extends FPDF
   `c`.`couns_recommendation` AS `RECOMMENDATION`
 FROM
   `counseling` `c`
-  JOIN `couns_details` `cd` ON `c`.`couns_Id` = `cd`.`counsId_ref`
-  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `cd`.`Stud_NO`
+  /*JOIN `couns_details` `cd` ON `c`.`couns_Id` = `cd`.`counsId_ref`*/
+  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `c`.`stud_regNo`
   JOIN `courses` `cr` ON `s`.`stud_course` = `cr`.`course_code` ";
     
     $options = array();
@@ -136,7 +136,7 @@ FROM
         $result =  mysqli_query($db, " SELECT
 `s`.`stud_regNo` AS `STUD_NO`,
   `s`.`stud_fullname` AS `STUD_NAME`,
-  `c`.`counselling_type` AS `COUNSELING_TYPE`,
+  `c`.`counseling_type` AS `COUNSELING_TYPE`,
   DATE_FORMAT(`c`.`couns_date`, '%M %d %Y') AS `COUNSELING_DATE`,
   
  

@@ -59,8 +59,8 @@ if (isset($_POST['indivFilter'])) {
   `c`.`couns_recommendation` AS `RECOMMENDATION`
 FROM
   `counseling` `c`
-  JOIN `couns_details` `cd` ON `c`.`couns_Id` = `cd`.`counsId_ref`
-  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `cd`.`stud_regNo`
+  
+  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `c`.`stud_regNo`
   JOIN `courses` `cr` ON `s`.`stud_course` = `cr`.`course_code`
   JOIN `semester` sem ON `c`.`couns_sem` = `sem`.`sem_name`";
 
@@ -122,8 +122,8 @@ FROM
   `c`.`couns_recommendation` AS `RECOMMENDATION`
 FROM
   `counseling` `c`
-  JOIN `couns_details` `cd` ON `c`.`couns_Id` = `cd`.`counsId_ref`
-  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `cd`.`stud_regNo`
+  
+  JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `c`.`stud_regNo`
   JOIN `courses` `cr` ON `s`.`stud_course` = `cr`.`course_code`
   JOIN `semester` sem ON `c`.`couns_sem` = `sem`.`sem_name` ORDER BY `c`.`couns_date` DESC";
 
@@ -198,8 +198,8 @@ if (isset($_POST['visitFilter'])) {
 FROM
 `stud_visit` `v`
     JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `v`.`stud_regno`
-    /**JOIN `semester` `sem` ON `v`.`Visit_SEMESTER` = `sem`.`sem_name` */
-    /* JOIN `batch_details` `btch` ON `v`.`Visit_ACADEMIC_YEAR` = `btch`.`batch_yr`*/  ";
+    JOIN `semester` `sem` ON `v`.`Visit_SEMESTER` = `sem`.`sem_name`
+    JOIN `batch_details` `btch` ON `v`.`Visit_ACADEMIC_YEAR` = `btch`.`batch_yr` ";
 
 
     $conditions = array();

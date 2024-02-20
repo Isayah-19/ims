@@ -21,6 +21,16 @@
                         <span>Visit Logs</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a <?php if($currentPage=='DeKUT-IMS-Counseling Services') { echo 'class="active"';} ?> >
+                        <i class="fa fa-suitcase"></i>
+                        <span>Counseling Services</span>
+                    </a>
+                   <ul class="sub">
+                    <li><a href="typeb_counseling_page.php"><i class="fa fa-user"></i>Individual Counseling</a></li>
+                    <li><a href="typeb_counseling_page_group.php"><i class="fa fa-users"></i>Group Counseling</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a <?php if($currentPage=='DeKUT_IMS-Files') { echo 'class="active"';} ?> href="TypeB_FilesAndDocuments.php">
                         <i class="fa fa-book"></i>
