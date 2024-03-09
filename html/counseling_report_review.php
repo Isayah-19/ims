@@ -3,6 +3,11 @@ require('fpdf.php');
 session_start();
 include('config.php');
 
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Establish database connection
 $db = mysqli_connect("localhost", "root", "", "imsdb");
 
@@ -50,6 +55,7 @@ class PDF extends FPDF
         // Output student information
         $this->Cell(9, 9, 'Student Number: ' . $row['STUD_NO'], 0, 1, 'L', $fill);
         $this->Cell(9, 9, 'Student Name: ' . $row['STUD_NAME'], 0, 1, 'L', $fill);
+        $this->Cell(9, 9, 'Counselor Name: ' . $row['COUNSELOR_FNAME'] . ' ' . $row['COUNSELOR_LNAME'], 0, 1, 'L', $fill);
         $this->Cell(9, 9, 'Counseling Type: ' . $row['COUNSELING_TYPE'], 0, 1, 'L', $fill);
         $this->Cell(9, 9, 'Nature of The Case: ' . $row['CASE_NATURE'], 0, 1, 'L', $fill);
         $this->Ln(10);
@@ -65,7 +71,9 @@ class PDF extends FPDF
 
 if (isset($_REQUEST['view'])) {
     $id = $_REQUEST['view'];
-    $sql = mysqli_query($db, "
+    
+    // Echo the SQL statement
+    $sql = "
     SELECT
       `c`.`couns_code` AS `COUNSELING_CODE`,
       DATE_FORMAT(`c`.`couns_date`, '%W %M %d %Y') AS `COUNSELING_DATE`,
@@ -92,15 +100,24 @@ if (isset($_REQUEST['view'])) {
       `c`.`couns_background` AS `COUNSELING_BG`,
       `c`.`couns_goals` AS `GOALS`,
       `c`.`couns_comment` AS `COUNS_COMMENT`,
-      `c`.`couns_recommendation` AS `RECOMMENDATION`
+      `c`.`couns_recommendation` AS `RECOMMENDATION`,
+      `u`.`user_fname` AS `COUNSELOR_FNAME`,
+      `u`.`user_lname` AS `COUNSELOR_LNAME`
     FROM
       `counseling` `c`
       JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `c`.`stud_regNo`
+      JOIN `users` `u` ON `u`.`userId` = `c`.`counselor_id`
     WHERE
       `c`.`couns_code` = '$id'
-  ");
+  ";
 
-    if ($row = mysqli_fetch_array($sql)) {
+  
+    // Echo the SQL statement
+   // echo "SQL Statement: <br>";
+    //echo $sql;
+    
+    $sql_query = mysqli_query($db, $sql);
+    if ($row = mysqli_fetch_array($sql_query)) {
         $pdf = new PDF();
         // Column headings
         // Data loading
@@ -110,3 +127,6 @@ if (isset($_REQUEST['view'])) {
         $pdf->Output('I', $row['STUD_NAME']);
     }
 }
+?>
+
+

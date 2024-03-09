@@ -63,11 +63,18 @@ if(isset($_SESSION['ID'])) {
         $result = mysqli_query($db, $sql);
 
         if ($result) {
-            // Redirect to counseling_page.php after successful insertion
-            header('Location: counseling_page.php' . $redirect);
-            exit(); // Ensure to stop further execution after redirection
+            // Call the stored procedure to insert the student visit record
+            $studVisitResult = mysqli_query($db, "CALL stud_visit_add('{$C_stud_no}', 'Counseling Session', 'Additional details for the counseling session')");
+        
+            if ($studVisitResult) {
+                // Redirect to counseling_page.php after successful insertion
+                header('Location: counseling_page.php');
+                exit();
+            } else {
+                echo "<p>Error occurred during student visit insertion: " . mysqli_error($db) . "</p>";
+            }
         } else {
-            echo "<p>Error occurred during insertion: " . mysqli_error($db) . "</p>";
+            echo "<p>Error occurred during counseling insertion: " . mysqli_error($db) . "</p>";
         }
     } else {
         // Handle the cases where either appr_id or _case value doesn't exist in respective tables

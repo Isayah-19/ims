@@ -33,6 +33,7 @@
     $(document).ready(function(e) {
             $.ajaxSetup({cache:false});
             setInterval(function() {$('#comment_logs').load('logs.php');}, 2000);
+    });
 </script>
 </head>
 <body>
@@ -619,3 +620,4 @@
 
 </body>
 </html>
+    

@@ -1,4 +1,3 @@
-
 <?php
 require('fpdf.php');
 session_start();
@@ -82,42 +81,40 @@ class PDF extends FPDF
             $courseOpt = $_REQUEST['courseOpt'];
 
             $actualQuery = " SELECT
-             `v`.`visit_purpose` AS `visit_purpose`,
-             `s`.`Stud_NO` AS `Stud_NO`,
-             `s`.`Stud_fullname` AS `STUDENT`,
+             `sv`.`visit_purpose` AS `visit_purpose`,
+             `s`.`stud_regNo` AS `Stud_NO`,
+             `s`.`stud_fullname` AS `STUDENT`,
             CONCAT(
               `s`.`stud_course`,
               ' ',
-              `s`.`stud_yrlevel`,
-              ' - ',
               `s`.`stud_yrlevel`
             ) AS `COURSE`,
-            DATE_FORMAT(`v`.`visit_date`, '%M %e, %Y') AS `visit_date`
+            DATE_FORMAT(`sv`.`visitdate`, '%M %e, %Y') AS `visit_date`
           FROM
-          `visit` `v`
-              JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `v`.`Stud_NO`
-              JOIN `semester` `sem` ON `v`.`Visit_SEMESTER` = `sem`.`Semestral_NAME`
-              JOIN `batch_details` `btch` ON `v`.`Visit_ACADEMIC_YEAR` = `btch`.`Batch_YEAR` ";
+          `stud_visit` `sv`
+              JOIN `stud_profile` `s` ON `s`.`stud_regno` = `sv`.`stud_regno`
+              
+               ";
     
     $options = array();
     
     if (!empty($visitOpt) && $visitOpt != 'All') {
-        $options[] = "v.visit_purpose = '$visitOpt'";
+        $options[] = "sv.visit_purpose = '$visitOpt'";
     }
     if (!empty($acadOpt) && $acadOpt != 'All') {
-        $options[] = "btch.Batch_YEAR = '$acadOpt'";
+        $options[] = "btch.batch_year = '$acadOpt'";
     }
 
     if (!empty($semOpt) && $semOpt != 'All') {
-        $options[] = "sem.Semestral_NAME =  '$semOpt'";
+        $options[] = "sem.semestral_name =  '$semOpt'";
     } 
 
     if (!empty($monthOpt) && $monthOpt != 'All') {
-        $options[] = "MONTH(v.visit_date) = '$monthOpt'";
+        $options[] = "MONTH(sv.visitdate) = '$monthOpt'";
     }
 
     if (!empty($dayOpt) && $dayOpt != 'All') {
-        $options[] = "DAY(v.visit_date) = '$dayOpt'";
+        $options[] = "DAY(sv.visitdate) = '$dayOpt'";
     }
 
     if (!empty($courseOpt) && $courseOpt != 'All') {
@@ -126,28 +123,26 @@ class PDF extends FPDF
 
     $query = $actualQuery;
     if (count($options)>0) {
-        $query .= " WHERE ". implode(' AND ', $options) ." ORDER BY `v`.`visit_date` DESC" ;
+        $query .= " WHERE ". implode(' AND ', $options) ." ORDER BY `sv`.`visitdate` DESC" ;
     }
 
     $result = mysqli_query($db, $query);
     } else {
         $result =  mysqli_query($db, " SELECT
-        `v`.`visit_purpose` AS `visit_purpose`,
+        `sv`.`visit_purpose` AS `visit_purpose`,
              `s`.`stud_regNo` AS `stud_No`,
              `s`.`stud_fullname` AS `STUDENT`,
             CONCAT(
               `s`.`stud_course`,
               ' ',
-              `s`.`stud_yrlevel`,
-              ' - ',
               `s`.`stud_yrlevel`
             ) AS `COURSE`,
-            DATE_FORMAT(`v`.`visit_date`, '%M %e, %Y') AS `visit_date`
+            DATE_FORMAT(`sv`.`visitdate`, '%M %e, %Y') AS `visit_date`
       FROM
-      `visit` `v`
-          JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `v`.`stud_No`
-          JOIN `semester` `sem` ON `v`.`Visit_SEMESTER` = `sem`.`Semestral_NAME`
-          JOIN `batch_details` `btch` ON `v`.`Visit_ACADEMIC_YEAR` = `btch`.`Batch_YEAR`");
+      `stud_visit` `sv`
+          JOIN `stud_profile` `s` ON `s`.`stud_regNo` = `sv`.`stud_regno`
+          
+          ");
     }
 
         
@@ -174,4 +169,4 @@ $body = array('Visit Purpose','Student Number', 'Student name', 'Course', 'Date'
 $pdf->SetFont('Arial', '', 12);
 $pdf->AddPage();
 $pdf->FancyTable($body);
-$pdf->Output('I', 'Visit Report'); ?>
+$pdf->Output('I', 'Visit Report'); 
