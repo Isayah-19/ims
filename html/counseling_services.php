@@ -513,8 +513,8 @@ include('sidebarnav.php');
                                                     <tr>
                                                         <td><?php echo $app; ?></td>
                                                         <td><?php echo $date; ?></td>
-                                                        <td><button class="btn btn-primary" name="view" value="View" id="" data-toggle="modal" href="#Viewmodal<?php echo $ID; ?>"
-                                                        <i class="fa fa-eye"> View</i></button></td>
+                                                        <td><button class="btn btn-primary" name="view" value="View" id="" data-toggle="modal" href="#Viewmodal<?php echo $no; ?>"
+                    <i class="fa fa-eye"> View</i></button></td>
                                                     </tr>
                                                 </tfoot>
                                             </div>
@@ -522,7 +522,47 @@ include('sidebarnav.php');
                                         </div>
                                   </div>
                              </div>
-                        
+                    
+                             <div class="modal fade" id="Viewmodal<?php echo $no; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" style="width:1000px">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#07847d; color:#fff">
+                                            <div class="col-11">
+                                                <h4 class="modal-title"><i class="fa fa-user"></i>&nbsp;<?php echo $no; ?></h4>
+                                            </div>
+                                            <div class="col-1 text-right">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff">&times;</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-body">
+                                        <div class="col-md-12 well">
+                                           <!-- <h4 class="col-md-8"style="padding-left:0px"><i class="fa fa-user"></i>Counselor ID: &nbsp <?php echo $counselor_id; ?></h4>  -->  
+                                            <h4 class="col-md-8"style="padding-left:0px"><i class="fa fa-pencil"></i>&nbsp <?php echo $app; ?></h4>
+                                            <h5 class="col-md-4" style="text-align:right"><i class="fa fa-thumb-tack"></i>&nbsp <?php echo $apptype; ?></h5>
+                                            <h6 style="text-align:right"><i class="fa fa-calendar"></i>&nbsp <?php echo $date; ?></h6>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="well">
+                                                <h4>Background of the Case:</h4>
+                                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $bg; ?>
+                                             
+                                                <h4>Counseling Goals:</h4>
+                                                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $goals; ?>
+                                             
+                                                <h4>Comments:</h4>
+                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $comments; ?>
+                                             
+                                                <h4>Recommendations:</h4>
+                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <?php echo $recomm; ?>
+                                             </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button data-dismiss="modal" class="btn btn-primary" type="button">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
                 </div>
                 </div>
             </div>

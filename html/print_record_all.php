@@ -16,15 +16,27 @@ class PDF extends FPDF
 {
 
 // Colored table
+private $acadOpt;
+    private $semOpt;
+    private $monthOpt;
+    private $dayOpt;
+    private $courseOpt;
+
+    // Constructor to set options
+    public function __construct($acadOpt, $semOpt, $monthOpt, $dayOpt, $courseOpt)
+    {
+        parent::__construct();
+        $this->acadOpt = $acadOpt;
+        $this->semOpt = $semOpt;
+        $this->monthOpt = $monthOpt;
+        $this->dayOpt = $dayOpt;
+        $this->courseOpt = $courseOpt;
+    }
+
+    // Header with dynamic content based on options
     public function Header()
     {
-    
-
         $this->SetFont('Times', '', 11);
-        // Move to the right
-    
-        // Framed title
-    
         $this->Image('images/dkut_logo.jpg', 15, 5, 30, 30);
         $this->Ln(3);
         $this->Cell(130, 10, 'Republic of Kenya', 0, 0, 'C');
@@ -32,13 +44,37 @@ class PDF extends FPDF
         $this->Ln(2);
         $this->Cell(183, 15, 'DEDAN KIMATHI UNIVERSITY OF TECHNOLOGY', 0, 0, 'C');
         $this->Ln(4);
-        $this->Cell(133, 15, 'MAIN CAMPUS', 0, 0, 'C');// Line break
-        $this->SetDrawColor(0,0,0);
-        $this->SetLineWidth(1); 
-        $this->Line(15,40,195,40);
+        $this->Cell(133, 15, 'MAIN CAMPUS', 0, 0, 'C');
+        $this->SetDrawColor(0, 0, 0);
+        $this->SetLineWidth(1);
+        $this->Line(15, 40, 195, 40);
         $this->Ln(20);
+
+        // Header based on selected options
+        $headerText = 'All Records'; // Default header text
+
+        if (!empty($this->acadOpt) && $this->acadOpt != 'All') {
+            $headerText = "Academic Year: {$this->acadOpt}";
+        }
+
+        if (!empty($this->semOpt) && $this->semOpt != 'All') {
+            $headerText .= " - Semester: {$this->semOpt}";
+        }
+
+        if (!empty($this->monthOpt) && $this->monthOpt != 'All') {
+            $headerText .= " - Month: {$this->monthOpt}";
+        }
+
+        if (!empty($this->dayOpt) && $this->dayOpt != 'All') {
+            $headerText .= " - Day: {$this->dayOpt}";
+        }
+
+        if (!empty($this->courseOpt) && $this->courseOpt != 'All') {
+            $headerText .= " - Course: {$this->courseOpt}";
+        }
+
         $this->SetFont('Arial', '', 11);
-        $this->Cell(0, 15, 'All Records', 0, 0, 'C');
+        $this->Cell(0, 15, $headerText, 0, 0, 'C');
         $this->Ln(20);
     }
     // Colored table
@@ -63,7 +99,7 @@ class PDF extends FPDF
         // Data
     
         $fill = false;
-        // $conn = mysqli_connect("localhost", "root", "", "pupqcdb");
+        
         include ('config.php');
 
         // Check connection
@@ -111,7 +147,7 @@ FROM
     }
 
     if (!empty($semOpt) && $semOpt != 'All') {
-        $options[] = "c.Couns_SEMESTER =  '$semOpt'";
+        $options[] = "c.couns_sem =  '$semOpt'";
     } 
 
     if (!empty($monthOpt) && $monthOpt != 'All') {
@@ -177,7 +213,9 @@ FROM
         $this->Cell($w[0], 7, $row[0], 'LR', 0, 'L', $fill);
         $this->Cell($w[1], 7, $row[1], 'LR', 0, 'L', $fill);
         $this->Cell($w[2], 7, $row[2], 'LR', 0, 'L', $fill);
-        $this->Cell($w[3], 7, $row[3], 'LR', 0, 'L', $fill);
+        $counsDate = date('M d, Y', strtotime($row['COUNSELING_DATE']));
+        $this->Cell($w[3], 7, $counsDate, 'LR', 0, 'L', $fill);
+
         $this->Ln();
         $fill = !$fill;
     }
@@ -187,11 +225,22 @@ FROM
     }
 }
 
-$pdf = new PDF();
+// Retrieve filter options from the request
+$acadOpt = $_REQUEST['acadOpt'] ?? '';
+$semOpt = $_REQUEST['semOpt'] ?? '';
+$monthOpt = $_REQUEST['monthOpt'] ?? '';
+$dayOpt = $_REQUEST['dayOpt'] ?? '';
+$courseOpt = $_REQUEST['courseOpt'] ?? '';
+
+// Create PDF object with filter options
+$pdf = new PDF($acadOpt, $semOpt, $monthOpt, $dayOpt, $courseOpt);
+
 // Column headings
 $body = array('Student Number', 'Student name', 'Type', 'Date');
+
 // Data loading
 $pdf->SetFont('Arial', '', 14);
 $pdf->AddPage();
 $pdf->FancyTable($body);
 $pdf->Output('I', 'Counseling Report');
+

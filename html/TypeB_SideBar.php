@@ -32,9 +32,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a <?php if($currentPage=='DeKUT_IMS-Files') { echo 'class="active"';} ?> href="TypeB_FilesAndDocuments.php">
+                    <a <?php if($currentPage=='DeKUT_IMS-Files') { echo 'class="active"';} ?> href="typeb_counselingreport.php">
                         <i class="fa fa-book"></i>
-                        <span>Files and Documents </span>
+                        <span>Reports </span>
                     </a>
                 </li>
                 
