@@ -45,16 +45,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -154,31 +144,7 @@ include('sidebarnav.php');
                             <div class="col-md-6">
                                 <blockquote>
                                     <h4>Recent Counseling</h4>
-                                <?php
-                    /*include("config.php");
-                        $stud_no2 = $_POST["student_no"];
-                        $stud_name2=$_POST["student_name"];
 
-                        $sql2="SELECT r.stud_Id, r.STUD_NO, CONCAT(r.STUD_FNAME,' ', r.STUD_LNAME) AS FULLNAME, t.stud_Id, t.COUNSELING_TYPE_CODE, 
-                                        t.COUNS_APPROACH, t.COUNS_DATE, a.COUNS_APPROACH_CODE, a.COUNS_APPROACH_NAME
-                                        FROM r_stud_profile r
-                                        INNER JOIN t_counseling t ON r.stud_Id = t.stud_Id
-                                        INNER JOIN R_COUNS_APPROACH a on t.COUNS_APPROACH = a.COUNS_APPROACH_CODE
-                                        where r.stud_no = '$stud_no2' 
-                                        OR CONCAT(r.STUD_FNAME,' ', r.STUD_LNAME)='$stud_name2'";
-
-                        $query2=mysqli_query($db,$sql2);
-
-                         if (!$query2) {
-                            die ('SQL Error: ' . mysqli_error($db));
-                        }
-
-                       while($row2=mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                    {
-                    ?>
-                                    <h6><?php echo''.$row['COUNS_APPROACH_NAME'].''?></h6>
-                                    <h6><?php echo''.$row['COUNS_DATE'].''?></h6>
-                                </blockquote> <?php } ?>*/?>
                             </div>
 
                             <div class="col-md-6">
@@ -267,30 +233,6 @@ include('sidebarnav.php');
                                             Scheduled Appointment
                                         </label>
                                     </div>
-                                <!--RADIO
-                                <h5 style="padding-left:40px"><strong>Please Check:</strong></h5>
-                                <div class="minimal-blue single-row" style="padding-left:100px">
-                                    <label>
-                                        <input type="radio" name="C_walkin" id="C_walkin" value="Voluntary/walk-in" checked>
-                                        Voluntary/walk-in
-                                    </label>
-                                </div>
-                                <div class="radio" style="padding-left:100px">
-                                    <label>
-                                        <input type="radio" name="C_initiated" id="C_initiated" value="Counselor Initiated">
-                                        Counselor Initiated
-                                    </label>
-                                </div>-->
-                               <!-- <div class="input-group col-md-6" style="padding-left:67px">
-                                              <span class="input-group-addon">
-                                                <input type="radio">
-                                              </span>
-                                <input type="text" class="form-control" placeholder="Referred (if so, name of person making referral)">
-                                </div>
-                                <div class=" col-md-4">
-                                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Name of person making referral">
-                                </div>-->
-                                <!--RADIO END-->
                                 </div>
                         <?php
                             include("config.php");
@@ -398,10 +340,6 @@ include('sidebarnav.php');
                                                 <h5> <?php echo ''.$row['course'].'' ?> </h5>
                                             </div>
                                         <div class="col-md-8">
-                                           <!-- <blockquote style="background-color:#03605b; height:100px;">
-                                                <h4>Sanction:</h4>
-                                                <span class="label label-warning"><i class="fa fa-exclamation"></i> Warning: 18hrs</span>
-                                            </blockquote>-->
                                             <blockquote style="background-color:#03605b; height:150px">
                                                 <h4>Recent Counseling Remarks:</h4>
                                                 <h5 id="remarkstxt" name="remarkstxt">Follow Up</h5>
@@ -493,10 +431,6 @@ include('sidebarnav.php');
                                                         <h5> <?php echo ''.$row['course'].'' ?> </h5>
                                                     </div>
                                                     <div class="col-md-8">
-                                                    <!--<blockquote style="background-color:#03605b; height:100px;">
-                                                        <h4>Sanction:</h4>
-                                                        <span class="label label-warning"><i class="fa fa-exclamation"></i> Warning: 18hrs</span>
-                                                    </blockquote>-->
                                                     
                                                     </div>
                                                 </div>
@@ -562,8 +496,6 @@ include('sidebarnav.php');
             </div>
         </div>
     </div>
-<!--right sidebar start-->
-<!--right sidebar end-->
 
 </section><?php } ?>
 

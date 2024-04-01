@@ -26,7 +26,7 @@
     
 <link href="css/reset.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+
 
 <!--dynamic table-->
     <link href="js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
@@ -39,13 +39,11 @@
 
     <!--Intellisence-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           
-     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
            
 
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
@@ -64,8 +62,7 @@ include('sidebarnav.php');
 if(isset($_POST['search']))
 {
     $valueToSearch = $_POST['filter'];
-    // search in all table columns
-    // using concat mysql function
+
  
 
 
@@ -104,7 +101,6 @@ function filterTable($query)
 
     <section id="main-content">
         <section class="wrapper">
-        <!-- page start-->
         <!-- page start-->
             <div class="row">
                 <div class="col-md-12">
@@ -165,13 +161,6 @@ function filterTable($query)
                     <?php
 include('config.php');
 
- /* $sql= "SELECT  t.counseling_ID, t.counseling_type_CODE, t.STUD_ID, t.STUD_NO, t.STUD_NAME, t.STUD_COURSE, t.STUD_YR, t.STUD_SECTION, 
-              t.STUD_CONTACT, t.STUD_EMAIL, t.STUD_ADDRESS, t.COUNS_APPROACH, t.COUNS_BG, t.COUNS_GOALS, t.COUNS_PREV_TEST, t.COUNS_PREV_PERSON, 
-              t.COUNS_COMMENTS, t.COUNS_RECOMM, t.COUNS_APPOINTMENT_type, DATE_FORMAT(t.COUNS_DATE,'%W %M %e %Y'), r.COUNS_APPROACH_CODE, r.COUNS_APPROACH_NAME
-FROM `t_counseling` as t
-INNER JOIN `r_couns_approach` as r ON t.COUNS_APPROACH = r.COUNS_APPROACH_CODE
-ORDER BY t.COUNS_DATE DESC";*/
-
 $sql = "select * from counseling where counseling_type = 'Individual Counseling' order by couns_date desc";
 $search_result = mysqli_query($db, $sql);
 
@@ -183,7 +172,6 @@ if (!$query) {
     while ($row = mysqli_fetch_assoc($search_result)) 
         {       
                 $no=$row['stud_regNo'];
-              // $name=$row['stud_fullname'];
                 $app=$row['apprcode'];
                 $type=$row['counseling_type'];
                 $bg=$row['couns_background'];
@@ -225,12 +213,7 @@ if (!$query) {
                                             </div>
                                     </div>
                                     <div class="modal-body">
-                                    <!--<div class="form-group" id="selectType" style="text-align:center; padding:20px 0px">
-                                            <button type="" class="btn btn-primary" onclick="ShowInput()">
-                                            <i class="fa fa-user"></i> Individual Counseling</button>
-                                            <button type="" class="btn btn-primary" onclick="document.location.href='counseling_services_group.php'">
-                                            <i class="fa fa-users"></i> Group Counseling</button>
-                                    </div>-->
+                                    
                                     <form method="POST" action="counseling_services.php">
                                     <div id="input"style="">
                                     <p>Input student's number before proceeding</p><br/>

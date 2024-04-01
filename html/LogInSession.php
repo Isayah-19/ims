@@ -1,8 +1,8 @@
 <?php
 	include ("config.php");
-	session_start(); // Start the session at the beginning of the script
+	session_start(); 
 
-	// Check if form fields are empty
+	
 	if(isset($_POST['username']) && isset($_POST['user_password'])) {
 		$uname = $_POST['username'];
 		$userpassword = $_POST['user_password'];
@@ -17,8 +17,8 @@
 				while($row = mysqli_fetch_assoc($result)) {
 					$ID = $row['userId'];
 					$userid = $row['user_referenced'];
-					$userfname = $row['user_fname']; // corrected variable name
-					$userlname = $row['user_lname']; // corrected variable name
+					$userfname = $row['user_fname']; 
+					$userlname = $row['user_lname'];
 					$userrole = $row['user_role'];
 				}
 				echo 'OK!';
@@ -52,4 +52,4 @@
 	} else {
 		echo "Session ID not available";
 	}
-?>
+
